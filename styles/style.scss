@@ -1,3 +1,7 @@
 // imports these scss files IN ORDER before compiling to CSS
+// the _ in the filename makes it compile to style.css instead of individual css files
+
+@import "./resets";
 @import "./variables";
+@import "./fonts";
 @import "./nav";

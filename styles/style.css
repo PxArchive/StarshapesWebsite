@@ -1,3 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+*::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100svh;
+}
+
+img, picture, svg, video {
+  max-width: 100%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 3rem;
+  }
+}
+@font-face {
+  font-family: "Fontname";
+  font-weight: fontweight;
+  src: url(fonts/fontname.ttf);
+}
 nav {
   width: 100%;
 }

@@ -1,0 +1,29 @@
+
+// removes annoying padding that come default in HTML
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    &::before, &::after {
+        box-sizing: border-box;
+    }
+}
+
+// prevents a body background colour from only covering part of the page
+body {
+    min-height: 100svh;
+}
+
+// prevents media from overflowing
+img, picture, svg, video {
+    max-width: 100%;
+}
+
+// smooth scrolling unless the device has reduced motion enabled
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 3rem;
+    }
+}
