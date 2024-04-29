@@ -1,3 +1,7 @@
-header {
-  background-color: blue;
+nav {
+  width: 100%;
+}
+nav h1 {
+  text-transform: uppercase;
+  color: red;
 }/*# sourceMappingURL=style.css.map */
