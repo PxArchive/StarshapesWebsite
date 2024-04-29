@@ -99,4 +99,6 @@ h4 {
   background: linear-gradient(90deg, #0035FF 0%, #0097FF 15%, #d568e0 33%, #ff0024 55%, #ffec00 100%);
   -webkit-background-clip: text;
           background-clip: text;
+  width: -moz-min-content;
+  width: min-content;
 }/*# sourceMappingURL=style.css.map */
