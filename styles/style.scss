@@ -3,10 +3,35 @@
 
 @import "./resets";
 @import "./variables";
-// @import "./fonts";
+@import "./fonts";
 @import "./nav";
 
+
+$fs-test-size: 5rem;
+
 h1 {
-    font-family: Tajawal;
+    font-family: $font-display;
+    font-weight: 900;
+    font-size: $fs-test-size;
+}
+
+h2 {
+    font-family: $font-display;
     font-weight: 300;
+    font-size: $fs-test-size;
+}
+
+h3 {
+    font-family: $font-text;
+    font-weight: 400;
+    font-size: $fs-test-size;
+}
+
+h4 {
+    font-family: $font-title;
+    font-weight: 600;
+    font-size: $fs-test-size;
+    color: transparent;
+    background: $g-rainbow;
+    background-clip: text;
 }

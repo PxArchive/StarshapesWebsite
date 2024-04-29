@@ -22,14 +22,81 @@ img, picture, svg, video {
     scroll-padding-top: 3rem;
   }
 }
-nav {
-  width: 100%;
+@font-face {
+  font-family: "Tajawal";
+  font-weight: 300;
+  src: url(fonts/Tajawal-Light.ttf);
 }
-nav h1 {
-  color: red;
+@font-face {
+  font-family: "Tajawal";
+  font-weight: 400;
+  font-style: normal;
+  src: url(fonts/Tajawal-Regular.ttf);
+}
+@font-face {
+  font-family: "Tajawal";
+  font-weight: 700;
+  src: url(fonts/Tajawal-Bold.ttf);
+}
+@font-face {
+  font-family: "Tajawal";
+  font-weight: 900;
+  src: url(fonts/Tajawal-Black.ttf);
+}
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  font-weight: 400;
+  font-style: normal;
+  src: url(fonts/AtkinsonHyperlegible-Regular.ttf);
+}
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  font-weight: 400;
+  font-style: italic;
+  src: url(fonts/AtkinsonHyperlegible-Italic.ttf);
+}
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  font-weight: 700;
+  font-style: normal;
+  src: url(fonts/AtkinsonHyperlegible-Bold.ttf);
+}
+@font-face {
+  font-family: "Atkinson Hyperlegible";
+  font-weight: 700;
+  font-style: italic;
+  src: url(/assets/fonts/AtkinsonHyperlegible-BoldItalic.ttf);
+}
+@font-face {
+  font-family: "Source Sans Pro";
+  font-weight: 600;
+  font-style: normal;
+  src: url(/assets/fonts/SourceSans3-SemiBold.ttf);
+}
+h1 {
+  font-family: "Tajawal", Arial, Sans-serif;
+  font-weight: 900;
+  font-size: 5rem;
 }
 
-h1 {
-  font-family: Tajawal;
+h2 {
+  font-family: "Tajawal", Arial, Sans-serif;
   font-weight: 300;
+  font-size: 5rem;
+}
+
+h3 {
+  font-family: "Atkinson Hyperlegible", Helvetica, Sans-serif;
+  font-weight: 400;
+  font-size: 5rem;
+}
+
+h4 {
+  font-family: "Source Sans Pro", Monospace;
+  font-weight: 600;
+  font-size: 5rem;
+  color: transparent;
+  background: linear-gradient(90deg, #0035FF 0%, #0097FF 15%, #d568e0 33%, #ff0024 55%, #ffec00 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
 }/*# sourceMappingURL=style.css.map */

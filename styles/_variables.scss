@@ -16,12 +16,7 @@ $col-cyan: #a8cfd4;
 $col-faded: #ffffff80;
 
 // secondary colours
-$g-rainbow: linear-gradient(to right, 
-0% #0035FF, 
-15% #0097FF, 
-33% #d568e0, 
-55% #ff0024, 
-100% #ffec00 );
+$g-rainbow: linear-gradient(90deg, #0035FF 0%, #0097FF 15%, #d568e0 33%, #ff0024 55%, #ffec00 100% );
 
 // spacings
 $spc-small: 1rem;
