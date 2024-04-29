@@ -3,5 +3,10 @@
 
 @import "./resets";
 @import "./variables";
-@import "./fonts";
+// @import "./fonts";
 @import "./nav";
+
+h1 {
+    font-family: Tajawal;
+    font-weight: 300;
+}

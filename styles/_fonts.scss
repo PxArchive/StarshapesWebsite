@@ -1,5 +1,68 @@
+// Tajawal Variants
+
 @font-face {
-    font-family: 'Fontname';
-    font-weight: fontweight;
-    src: url(fonts/fontname.ttf);
+    font-family: 'Tajawal';
+    font-weight: 300;
+    src: url(/assets/fonts/Tajawal-Light.ttf);
+}
+
+@font-face {
+    font-family: 'Tajawal';
+    font-weight: 400;
+    font-style: normal;
+    src: url(/assets/fonts/Tajawal-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Tajawal';
+    font-weight: 700;
+    src: url(/assets/fonts/Tajawal-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'Tajawal';
+    font-weight: 900;
+    src: url(/assets/fonts/Tajawal-Black.ttf);
+}
+
+$font-display: 'Tajawal';
+
+
+// Atkinson Variants
+
+@font-face {
+    font-family: 'Atkinson Hyperlegible';
+    font-weight: 400;
+    font-style: normal;
+    src: url(/assets/fonts/AtkinsonHyperlegible-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'Atkinson Hyperlegible';
+    font-weight: 400;
+    font-style: italic;
+    src: url(/assets/fonts/AtkinsonHyperlegible-Italic.ttf);
+}
+
+@font-face {
+    font-family: 'Atkinson Hyperlegible';
+    font-weight: 700;
+    font-style: normal;
+    src: url(/assets/fonts/AtkinsonHyperlegible-Bold.ttf);
+}
+
+@font-face {
+    font-family: 'Atkinson Hyperlegible';
+    font-weight: 700;
+    font-style: italic;
+    src: url(/assets/fonts/AtkinsonHyperlegible-BoldItalic.ttf);
+}
+
+// Source Sans Variants
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-weight: 600;
+    font-style: normal;
+    src: url(/assets/fonts/SourceSans3-SemiBold.ttf);
 }

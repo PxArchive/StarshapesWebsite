@@ -1,4 +1,29 @@
 // SCSS variables start with $ instead of -- for some reason
 // All global variables go here because it is loaded first
 
-$variable: #FFFFFF;
+
+// primary colours
+
+$col-blue: #0080ff;
+$col-yellow: #ffe000;
+$col-red: #ff4d4d;
+$col-green: #47b347;
+$col-purple: #e080ff;
+$col-orange: #edae4a;
+
+$col-white: #ffffff;
+$col-cyan: #a8cfd4;
+$col-faded: #ffffff80;
+
+// secondary colours
+$g-rainbow: linear-gradient(to right, 
+0% #0035FF, 
+15% #0097FF, 
+33% #d568e0, 
+55% #ff0024, 
+100% #ffec00 );
+
+// spacings
+$spc-small: 1rem;
+$spc-med: 2rem;
+$spc-large: 4rem;
