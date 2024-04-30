@@ -65,13 +65,13 @@ img, picture, svg, video {
   font-family: "Atkinson Hyperlegible";
   font-weight: 700;
   font-style: italic;
-  src: url(/assets/fonts/AtkinsonHyperlegible-BoldItalic.ttf);
+  src: url(fonts/AtkinsonHyperlegible-BoldItalic.ttf);
 }
 @font-face {
   font-family: "Source Sans Pro";
   font-weight: 600;
   font-style: normal;
-  src: url(/assets/fonts/SourceSans3-SemiBold.ttf);
+  src: url(fonts/SourceSans3-SemiBold.ttf);
 }
 h1 {
   font-family: "Tajawal", Arial, Sans-serif;
