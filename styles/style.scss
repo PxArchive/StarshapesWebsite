@@ -6,6 +6,26 @@
 @import "./fonts";
 @import "./nav";
 
+h1, h2, h3, h4, p {
+    color: $col-white;
+}
+
+body {
+    background: $g-background;
+    &::before {
+        content: '';
+        z-index: -1;
+        display: grid;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background-image: url(../assets/img/image_054_0000_t.png);
+        opacity: 1;
+        background-size:400px;
+        background-repeat: repeat;
+        background-blend-mode: multiply;
+    }
+}
 
 $fs-test-size: 5rem;
 
