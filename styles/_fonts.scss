@@ -86,7 +86,7 @@ h1 {
     margin-inline: auto; // centers the text. Text-align center does not work due to width:fit-content making it too short.
     margin-block: $spc-large;
 
-    &::before , &::after { // create a clone of the text object. Turn on &::after for more intense glow
+    &::before , &::after { // create a clone of the text object.
         content: attr(data-text); // write the text from data-text in the HTML
         position: absolute; // (3 lines) position the text on top of the original
         top: 0;

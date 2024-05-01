@@ -106,7 +106,7 @@ h2 {
   font-family: "Tajawal", Arial, Sans-serif;
   font-weight: 900;
   font-style: normal;
-  font-size: 2rem;
+  font-size: 2.25rem;
   text-align: center;
   margin-block: 1rem;
 }
@@ -157,4 +157,52 @@ body::before {
 
 .content-grid > .fullwidth {
   grid-column: fullwidth;
+}
+
+button {
+  --glow-size: 0.35em;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: auto auto;
+  color: #ffffff;
+  font-family: "Tajawal", Arial, Sans-serif;
+  font-weight: 900;
+  font-size: 1.75rem;
+  padding: 0.5em 0.8em 0.3em;
+  width: -moz-fit-content;
+  width: fit-content;
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  background: none;
+  transition: 200ms;
+}
+button::before {
+  content: "";
+  position: relative;
+  display: grid;
+  align-self: center;
+  top: -0.1em;
+  width: 0.55em;
+  height: 0.55em;
+  background-color: #ffffff;
+  border-radius: 9em;
+  margin-right: 0.5em;
+}
+button:hover {
+  text-shadow: 0px 0px var(--glow-size) #ffffff;
+  box-shadow: 0px 0px var(--glow-size) #a8cfd4, inset 0px 0px var(--glow-size) #a8cfd4;
+  transition: 200ms;
+}
+button:hover::before {
+  box-shadow: 0px 0px var(--glow-size) #ffffff;
+  transition: 200ms;
+}
+button:active {
+  background: #ffffff;
+  color: #000000;
+  transition: 0ms;
+}
+button:active::before {
+  background-color: #000000;
+  transition: 0ms;
 }/*# sourceMappingURL=style.css.map */
