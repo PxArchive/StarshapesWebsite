@@ -21,7 +21,7 @@ body {
         opacity: 1;
         background-size: 400px;
         background-repeat: repeat;
-        background-blend-mode: multiply;
+        mix-blend-mode: screen;
     }
 }
 
@@ -30,7 +30,7 @@ body {
 // very important grid setup that the layout relies on
     --padding-bar: 0.5rem; // sets the page padding base value
     --content-max-width: 960px ; // sets the maximum width of the main content
-    --breakout-width: minmax(0px, 3rem); // how far the breakout element break out
+    --breakout-width: minmax(0px, 3rem); // how far the breakout element breaks out
 
     display: grid;
     grid-template-columns: 

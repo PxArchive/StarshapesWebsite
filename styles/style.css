@@ -78,16 +78,26 @@ h1, h2, h3, p {
 }
 
 h1 {
+  position: relative;
   font-family: "Source Sans Pro", Monospace;
   font-weight: 600;
   font-size: 3.75rem;
+  margin-inline: auto;
+}
+h1::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
   background: linear-gradient(90deg, #0035FF 0%, #0097FF 15%, #d568e0 33%, #ff0024 55%, #ffec00 100%);
   -webkit-background-clip: text;
           background-clip: text;
   color: transparent;
   width: -moz-fit-content;
   width: fit-content;
-  margin-inline: auto;
+  filter: blur(0.3rem);
+  mix-blend-mode: screen;
 }
 
 h2 {
@@ -122,7 +132,7 @@ body::before {
   opacity: 1;
   background-size: 400px;
   background-repeat: repeat;
-  background-blend-mode: multiply;
+  mix-blend-mode: screen;
 }
 
 .content-grid {

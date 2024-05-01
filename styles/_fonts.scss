@@ -78,15 +78,28 @@ h1, h2, h3, p {
 }
 
 h1 {
+    position: relative;
     font-family: $font-title;
     font-weight: 600;
     font-size: $fs-title;
-
-    background: $g-rainbow; // set the background of the text as a gradient
-    background-clip: text; // only show the gradient where the text covers
-    color: transparent; // make the text transparent so the text becomes ranbow-filled
-    width: fit-content; // make the gradient only cover the area the text covers
     margin-inline: auto; // centers the text. Text-align center does not work due to width:fit-content making it too short.
+
+
+    &::before { // create a clone of the text object
+        content: attr(data-text); // write the text from data-text in the HTML
+        position: absolute; // position the text on top of the original
+        top: 0;
+        left: 0;
+        z-index: -1; // place it below instead
+
+        background: $g-rainbow; // set the background of the text as a gradient
+        background-clip: text; // only show the gradient where the text covers
+        color: transparent; // make the text transparent so the text becomes ranbow-filled
+        width: fit-content; // make the gradient only cover the area the text covers
+        
+        filter: blur(0.3rem); // make it glowy :)
+        mix-blend-mode: screen; // does exactly what it looks like :)
+    }
 }
 
 h2 {
