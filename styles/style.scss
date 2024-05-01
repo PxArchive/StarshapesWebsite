@@ -18,16 +18,15 @@ body {
         width: 100%;
         height: 100%;
         background-image: url(../assets/img/image_054_0000_t.png);
-        opacity: 1;
+        opacity: 0.85;
         background-size: 400px;
         background-repeat: repeat;
         mix-blend-mode: screen;
     }
 }
 
-.content-grid {
-
 // very important grid setup that the layout relies on
+.content-grid {
     --padding-bar: 0.5rem; // sets the page padding base value
     --content-max-width: 960px ; // sets the maximum width of the main content
     --breakout-width: minmax(0px, 3rem); // how far the breakout element breaks out
@@ -49,7 +48,7 @@ body {
 
     minmax(var(--padding-bar), 1fr) 
     [fullwidth-end];
-    /* start and end suffix/prefix creates the grid-areas that content is assigned to */
+    // start and end suffix/prefix creates the grid-areas that content is assigned to
 }
 
 .content-grid > * {
@@ -127,5 +126,32 @@ button {
     &:active::before {
         background-color: $col-black;
         transition: 0ms;
+    }
+}
+
+hr {
+    --width-offset: 0.3rem; // distance that the blur is wider than the original line
+    display: grid; // to make stuff work better
+    width: calc(100% - var(--width-offset)); //subtracte the extra blur width from the line width
+    height: 2px;
+    border: none;
+    border-radius: $border-radius;
+    background: #ffffff;
+    margin-inline: auto;
+    margin-block: $spc-med;
+    overflow: visible; // everything outside the line (the glow) disappears without this - weird <hr> behaviour
+
+    &::before, &::after { 
+
+        content: '';
+        position: relative; 
+        top: -1px; // offset to center on the y axis
+        left: calc(var(--width-offset) * -0.5); // offset to center the blur
+        width: calc(100% + var(--width-offset)); // add the extra width back in, otherwise it would be the same size
+        height: 2px;
+
+        background: $g-rainbow;
+        filter: blur(0.3rem);
+        mix-blend-mode: screen; 
     }
 }

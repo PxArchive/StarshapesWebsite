@@ -122,7 +122,7 @@ p {
 }
 
 body {
-  background: linear-gradient(180deg, #214247 0%, #000000 50%, #1a303c 100%);
+  background: linear-gradient(180deg, #153236 0%, #010013 50%, #010013 70%, #0b1925 100%);
 }
 body::before {
   content: "";
@@ -132,7 +132,7 @@ body::before {
   width: 100%;
   height: 100%;
   background-image: url(../assets/img/image_054_0000_t.png);
-  opacity: 1;
+  opacity: 0.85;
   background-size: 400px;
   background-repeat: repeat;
   mix-blend-mode: screen;
@@ -144,7 +144,6 @@ body::before {
   --breakout-width: minmax(0px, 3rem);
   display: grid;
   grid-template-columns: [fullwidth-start] minmax(var(--padding-bar), 1fr) [breakout-start] var(--breakout-width) [content-start] min(100% - var(--padding-bar) * 4, var(--content-max-width)) [content-end] var(--breakout-width) [breakout-end] minmax(var(--padding-bar), 1fr) [fullwidth-end];
-  /* start and end suffix/prefix creates the grid-areas that content is assigned to */
 }
 
 .content-grid > * {
@@ -206,4 +205,28 @@ button:active {
 button:active::before {
   background-color: #000000;
   transition: 0ms;
+}
+
+hr {
+  --width-offset: 0.3rem;
+  display: grid;
+  width: calc(100% - var(--width-offset));
+  height: 2px;
+  border: none;
+  border-radius: 10px;
+  background: #ffffff;
+  margin-inline: auto;
+  margin-block: 2rem;
+  overflow: visible;
+}
+hr::before, hr::after {
+  content: "";
+  position: relative;
+  top: -1px;
+  left: calc(var(--width-offset) * -0.5);
+  width: calc(100% + var(--width-offset));
+  height: 2px;
+  background: linear-gradient(90deg, #0035FF 0%, #0097FF 15%, #d568e0 33%, #ff0024 55%, #ffec00 100%);
+  filter: blur(0.3rem);
+  mix-blend-mode: screen;
 }/*# sourceMappingURL=style.css.map */
