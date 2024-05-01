@@ -68,29 +68,33 @@ body {
 button {
 
     --glow-size: 0.35em;
-    cursor: pointer;
+    cursor: pointer; // makes the mouse into a hand so it looks clickable
     display: grid;
     grid-template-columns: auto auto;
 
-    color: $col-white;
+    // font stuff
+    color: $col-white; 
     font-family: $font-display;
     font-weight: 900;
     font-size: $fs-button;
 
+    // general size and styling
     padding: 0.5em 0.8em 0.3em;
+    margin: 1rem;
     width: fit-content;
     border: 2px solid $col-white;
     border-radius: $border-radius;
     background: none;
 
     transition: 200ms;
-
+    
+    // create a funny orb before the text
     &::before {
-        content: '';
+        content: ''; //make the orb exist without any content
         position: relative;
         display: grid;
-        align-self:center;
-        top: -0.1em;
+        align-self: center;
+        top: -0.1em; // fix centering due to button padding. Should scale with font size
         width: 0.55em;
         height: 0.55em;
         background-color: $col-white;
@@ -98,24 +102,28 @@ button {
         margin-right: 0.5em ;
     }
 
+    // text and outline glow on hover
     &:hover {
-        text-shadow: 0px 0px var(--glow-size) $col-white;
-        box-shadow: 0px 0px var(--glow-size) $col-cyan, inset 0px 0px var(--glow-size) $col-cyan ;
+        text-shadow: 0px 0px var(--glow-size) $col-white; // make the text glow
+        box-shadow: 0px 0px var(--glow-size) $col-cyan, inset 0px 0px var(--glow-size) $col-cyan ; // make the outline glow
         transition: 200ms;
     }
 
+    // make the orb glow
     &:hover::before {
         box-shadow: 0px 0px var(--glow-size) $col-white;
         transition: 200ms;
 
     }
 
+    // make the text black, and background white when the button is clicked
     &:active {
         background: $col-white;
         color: $col-black;
         transition: 0ms;
     }
-
+    
+    // make the orb black when the button is clicked
     &:active::before {
         background-color: $col-black;
         transition: 0ms;

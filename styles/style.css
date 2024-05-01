@@ -82,7 +82,7 @@ h1 {
   text-transform: uppercase;
   font-family: "Source Sans Pro", Monospace;
   font-weight: 600;
-  font-size: 3.75rem;
+  font-size: 4rem;
   margin-inline: auto;
   margin-block: 4rem;
 }
@@ -169,6 +169,7 @@ button {
   font-weight: 900;
   font-size: 1.75rem;
   padding: 0.5em 0.8em 0.3em;
+  margin: 1rem;
   width: -moz-fit-content;
   width: fit-content;
   border: 2px solid #ffffff;
