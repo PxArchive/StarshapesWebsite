@@ -20,6 +20,14 @@ $g-rainbow: linear-gradient(90deg, #0035FF 0%, #0097FF 15%, #d568e0 33%, #ff0024
 $g-background: linear-gradient(180deg, #214247 0%, #000000 50%, #1a303c 100%);
 
 // spacings
-$spc-small: 1rem;
-$spc-med: 2rem;
-$spc-large: 4rem;
+$spc-small: 1rem; // 16 px
+$spc-med: 2rem; // 32 px
+$spc-large: 4rem; // 64 px
+
+$border-radius: 5px;
+
+// Font sizes
+$fs-title: 3.75rem; // 60 pt
+$fs-heading: 2rem; // 32 pt
+$fs-text: 1.125rem; // 18 pt
+

@@ -6,53 +6,60 @@
 @import "./fonts";
 @import "./nav";
 
-h1, h2, h3, h4, p {
-    color: $col-white;
-}
+
 
 body {
-    background: $g-background;
+    background: $g-background; // use the gradient variable as background
     &::before {
-        content: '';
-        z-index: -1;
+        content: ''; // create an invisible clone of the same object
+        z-index: -1; // place it behind the content inside 'body'
         display: grid;
         position: fixed;
         width: 100%;
         height: 100%;
         background-image: url(../assets/img/image_054_0000_t.png);
         opacity: 1;
-        background-size:400px;
+        background-size: 400px;
         background-repeat: repeat;
         background-blend-mode: multiply;
     }
 }
 
-$fs-test-size: 5rem;
+.content-grid {
 
-h1 {
-    font-family: $font-display;
-    font-weight: 900;
-    font-size: $fs-test-size;
+// very important grid setup that the layout relies on
+    --padding-bar: 0.5rem; // sets the page padding base value
+    --content-max-width: 960px ; // sets the maximum width of the main content
+    --breakout-width: minmax(0px, 3rem); // how far the breakout element break out
+
+    display: grid;
+    grid-template-columns: 
+    [fullwidth-start] // label to call all 5 columns "fullwidth"
+    minmax(var(--padding-bar), 1fr) // dynamically scale the page padding between the minimum padding, and infinity, to keep the content centered
+
+    [breakout-start] // label to call the inner 3 columns "breakout"
+    var(--breakout-width) 
+
+    [content-start] // label to call the central column "content"
+    min(100% - (var(--padding-bar) * 4), var(--content-max-width)) // removes the breakout padding dynamically on small screen sizes, while keeping the main content column to a maximum width
+    [content-end] 
+
+    var(--breakout-width) 
+    [breakout-end] 
+
+    minmax(var(--padding-bar), 1fr) 
+    [fullwidth-end];
+    /* start and end suffix/prefix creates the grid-areas that content is assigned to */
 }
 
-h2 {
-    font-family: $font-display;
-    font-weight: 300;
-    font-size: $fs-test-size;
+.content-grid > * {
+    grid-column: content; // assign all direct children of the grid to fill only the "content" central column
 }
 
-h3 {
-    font-family: $font-text;
-    font-weight: 400;
-    font-size: $fs-test-size;
+.content-grid > .breakout {
+    grid-column: breakout; // assign the breakout class to the breakout area, becoming slightly wider than the content
 }
 
-h4 {
-    font-family: $font-title;
-    font-weight: 600;
-    font-size: $fs-test-size;
-    color: transparent;
-    background: $g-rainbow;
-    background-clip: text;
-    width: min-content;
+.content-grid > .fullwidth {
+    grid-column: fullwidth; // assign the fullwidth class to all 5 columns, fulling the entire width of the screen
 }

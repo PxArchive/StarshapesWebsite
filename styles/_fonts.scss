@@ -70,3 +70,39 @@ $font-text: "Atkinson Hyperlegible", Helvetica, Sans-serif;
 }
 
 $font-title: "Source Sans Pro", Monospace;
+
+// styling
+
+h1, h2, h3, p {
+    color: $col-white;
+}
+
+h1 {
+    font-family: $font-title;
+    font-weight: 600;
+    font-size: $fs-title;
+
+    background: $g-rainbow; // set the background of the text as a gradient
+    background-clip: text; // only show the gradient where the text covers
+    color: transparent; // make the text transparent so the text becomes ranbow-filled
+    width: fit-content; // make the gradient only cover the area the text covers
+    margin-inline: auto; // centers the text. Text-align center does not work due to width:fit-content making it too short.
+}
+
+h2 {
+    font-family: $font-display;
+    font-weight: 900;
+    font-style: normal;
+    font-size: $fs-heading;
+    text-align: center;
+}
+
+p {
+    font-family: $font-display;
+    font-weight: 300;
+    font-size: $fs-text;
+}
+
+.alt-font {
+    font-family: $font-text;
+}

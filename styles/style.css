@@ -73,8 +73,39 @@ img, picture, svg, video {
   font-style: normal;
   src: url(fonts/SourceSans3-SemiBold.ttf);
 }
-h1, h2, h3, h4, p {
+h1, h2, h3, p {
   color: #ffffff;
+}
+
+h1 {
+  font-family: "Source Sans Pro", Monospace;
+  font-weight: 600;
+  font-size: 3.75rem;
+  background: linear-gradient(90deg, #0035FF 0%, #0097FF 15%, #d568e0 33%, #ff0024 55%, #ffec00 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-inline: auto;
+}
+
+h2 {
+  font-family: "Tajawal", Arial, Sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  font-size: 2rem;
+  text-align: center;
+}
+
+p {
+  font-family: "Tajawal", Arial, Sans-serif;
+  font-weight: 300;
+  font-size: 1.125rem;
+}
+
+.alt-font {
+  font-family: "Atkinson Hyperlegible", Helvetica, Sans-serif;
 }
 
 body {
@@ -94,32 +125,23 @@ body::before {
   background-blend-mode: multiply;
 }
 
-h1 {
-  font-family: "Tajawal", Arial, Sans-serif;
-  font-weight: 900;
-  font-size: 5rem;
+.content-grid {
+  --padding-bar: 0.5rem;
+  --content-max-width: 960px ;
+  --breakout-width: minmax(0px, 3rem);
+  display: grid;
+  grid-template-columns: [fullwidth-start] minmax(var(--padding-bar), 1fr) [breakout-start] var(--breakout-width) [content-start] min(100% - var(--padding-bar) * 4, var(--content-max-width)) [content-end] var(--breakout-width) [breakout-end] minmax(var(--padding-bar), 1fr) [fullwidth-end];
+  /* start and end suffix/prefix creates the grid-areas that content is assigned to */
 }
 
-h2 {
-  font-family: "Tajawal", Arial, Sans-serif;
-  font-weight: 300;
-  font-size: 5rem;
+.content-grid > * {
+  grid-column: content;
 }
 
-h3 {
-  font-family: "Atkinson Hyperlegible", Helvetica, Sans-serif;
-  font-weight: 400;
-  font-size: 5rem;
+.content-grid > .breakout {
+  grid-column: breakout;
 }
 
-h4 {
-  font-family: "Source Sans Pro", Monospace;
-  font-weight: 600;
-  font-size: 5rem;
-  color: transparent;
-  background: linear-gradient(90deg, #0035FF 0%, #0097FF 15%, #d568e0 33%, #ff0024 55%, #ffec00 100%);
-  -webkit-background-clip: text;
-          background-clip: text;
-  width: -moz-min-content;
-  width: min-content;
+.content-grid > .fullwidth {
+  grid-column: fullwidth;
 }/*# sourceMappingURL=style.css.map */
