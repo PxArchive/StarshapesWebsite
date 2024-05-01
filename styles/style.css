@@ -79,12 +79,14 @@ h1, h2, h3, p {
 
 h1 {
   position: relative;
+  text-transform: uppercase;
   font-family: "Source Sans Pro", Monospace;
   font-weight: 600;
   font-size: 3.75rem;
   margin-inline: auto;
+  margin-block: 4rem;
 }
-h1::before {
+h1::before, h1::after {
   content: attr(data-text);
   position: absolute;
   top: 0;
@@ -96,7 +98,7 @@ h1::before {
   color: transparent;
   width: -moz-fit-content;
   width: fit-content;
-  filter: blur(0.3rem);
+  filter: blur(0.07em);
   mix-blend-mode: screen;
 }
 
@@ -106,6 +108,7 @@ h2 {
   font-style: normal;
   font-size: 2rem;
   text-align: center;
+  margin-block: 1rem;
 }
 
 p {
