@@ -132,7 +132,7 @@ button {
 hr {
     --width-offset: 0.3rem; // distance that the blur is wider than the original line
     display: grid; // to make stuff work better
-    width: calc(100% - var(--width-offset)); //subtracte the extra blur width from the line width
+    width: calc(100% - var(--width-offset)); //subtract the extra blur width from the line width
     height: 2px;
     border: none;
     border-radius: $border-radius;
@@ -159,5 +159,6 @@ hr {
 img {
     border-radius: $border-radius;
     box-shadow: 0px 0px $spc-small $col-white;
+    max-width: calc(100% - 2rem); // add a 2rem margin while maintaining the centering from margin auto
     margin-inline: auto;
 }
