@@ -78,7 +78,7 @@ button {
     font-size: $fs-button;
 
     // general size and styling
-    padding: 0.5em 0.8em 0.3em;
+    padding: 0.4em 0.8em;
     margin: 1rem;
     width: fit-content;
     border: 2px solid $col-white;
@@ -93,7 +93,7 @@ button {
         position: relative;
         display: grid;
         align-self: center;
-        top: -0.1em; // fix centering due to button padding. Should scale with font size
+        // top: -0.1em; // fix centering due to button padding. Should scale with font size
         width: 0.55em;
         height: 0.55em;
         background-color: $col-white;
@@ -154,4 +154,10 @@ hr {
         filter: blur(0.3rem);
         mix-blend-mode: screen; 
     }
+}
+
+img {
+    border-radius: $border-radius;
+    box-shadow: 0px 0px $spc-small $col-white;
+    margin-inline: auto;
 }

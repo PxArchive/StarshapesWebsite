@@ -167,7 +167,7 @@ button {
   font-family: "Tajawal", Arial, Sans-serif;
   font-weight: 900;
   font-size: 1.75rem;
-  padding: 0.5em 0.8em 0.3em;
+  padding: 0.4em 0.8em;
   margin: 1rem;
   width: -moz-fit-content;
   width: fit-content;
@@ -181,7 +181,6 @@ button::before {
   position: relative;
   display: grid;
   align-self: center;
-  top: -0.1em;
   width: 0.55em;
   height: 0.55em;
   background-color: #ffffff;
@@ -229,4 +228,10 @@ hr::before, hr::after {
   background: linear-gradient(90deg, #0035FF 0%, #0097FF 15%, #d568e0 33%, #ff0024 55%, #ffec00 100%);
   filter: blur(0.3rem);
   mix-blend-mode: screen;
+}
+
+img {
+  border-radius: 10px;
+  box-shadow: 0px 0px 1rem #ffffff;
+  margin-inline: auto;
 }/*# sourceMappingURL=style.css.map */
