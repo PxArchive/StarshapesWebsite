@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -154,28 +155,33 @@ Nav ul li {
 Nav ul li a {
   text-shadow: 0 0 0.7em var(--glow-col), 0 0 0.2em var(--glow-col), 0 0 0.3em var(--glow-col);
 }
-Nav ul li a::before {
-  box-shadow: 0 0 0.7em var(--glow-col), 0 0 0.2em var(--glow-col), 0 0 0.1em var(--glow-col) inset;
-}
 Nav ul li:nth-of-type(1) {
   --glow-col: #0080ff;
+}
+Nav ul li:nth-of-type(1) a::before {
+  content: "▲";
 }
 Nav ul li:nth-of-type(2) {
   --glow-col: #e080ff;
 }
+Nav ul li:nth-of-type(2) a::before {
+  content: "◆";
+}
 Nav ul li:nth-of-type(3) {
   --glow-col: #ff4d4d;
+}
+Nav ul li:nth-of-type(3) a::before {
+  content: "⬟";
 }
 Nav ul li:nth-of-type(4) {
   --glow-col: #ffe000;
 }
+Nav ul li:nth-of-type(4) a::before {
+  content: "⬣";
+}
 Nav ul li a::before {
-  content: "";
+  font-size: 0.8em;
   display: inline-block;
-  border-radius: 1em;
-  width: 0.6em;
-  height: 0.6em;
-  background-color: #ffffff;
 }
 
 a {
