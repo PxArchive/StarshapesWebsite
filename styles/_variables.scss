@@ -25,11 +25,14 @@ $g-boxgradient: linear-gradient(180deg, #0035FF 0%, #0097FF 50%, #d568e0 100% );
 
 
 // spacings
-$spc-small: 1rem; // 16 px
-$spc-med: 2rem; // 32 px
-$spc-large: 4rem; // 64 px
+$spc-xs: 0.5em; // 8 px
+$spc-small: 1em; // 16 px
+$spc-med: 2em; // 32 px
+$spc-large: 4em; // 64 px
 
 $border-radius: 10px;
+
+$nav-height: 8rem;
 
 // Font sizes
 $fs-title: 4rem; // 64 pt

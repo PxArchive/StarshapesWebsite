@@ -1,1 +1,84 @@
 // Navigation styling goes here
+
+Nav {
+    height: $nav-height;
+    display: grid;
+    position: fixed;
+    z-index: 99;
+    // grid-template-columns: 1fr fit-content 1fr;
+    width: 100%;
+    border-bottom-left-radius: 500%;
+    border-bottom-right-radius: 500%;
+    background-color: $col-black;
+
+    ul {
+        color: $col-white;
+        font-family: $font-display;
+        font-weight: 900;
+        font-style: normal;
+        font-size: $fs-heading;
+        text-align: center;
+
+
+        margin-inline: auto;
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        gap: $spc-small;
+        align-items: center;
+        text-wrap: nowrap;
+
+        li {
+            --glow-col: #FFFFFF;
+            a {
+                text-shadow: 0 0 0.7em var(--glow-col), 0 0 0.2em var(--glow-col), 0 0 0.3em var(--glow-col);
+                &::before {
+                    box-shadow: 0 0 0.7em var(--glow-col), 0 0 0.2em var(--glow-col), 0 0 0.1em var(--glow-col) inset;;
+                }
+            }
+
+            &:nth-of-type(1) {
+                --glow-col: #0080ff;
+            }
+
+            &:nth-of-type(2) {
+                --glow-col: #e080ff;
+            }
+
+            &:nth-of-type(3) {
+                --glow-col: #ff4d4d;
+            }
+
+            &:nth-of-type(4) {
+                --glow-col: #ffe000;
+            }
+        }
+
+        li a{
+
+            &::before {
+                content: '';
+                display: inline-block;
+                border-radius: 1em;
+                width: 0.75em;
+                height: 0.75em;
+                background-color: $col-white;
+            }
+
+
+        }
+    }
+}
+
+a {
+    color: $col-white;
+}
+
+.logo {
+    max-height: calc($nav-height * 0.9);
+    box-shadow: none;
+}
+
+.nav-spacer {
+    height: calc($nav-height + $spc-med);
+}

@@ -84,7 +84,7 @@ h1 {
     font-weight: 600;
     font-size: $fs-title;
     margin-inline: auto; // centers the text. Text-align center does not work due to width:fit-content making it too short.
-    margin-block: $spc-large;
+    margin-bottom: $spc-small;
 
     &::before , &::after { // create a clone of the text object.
         content: attr(data-text); // write the text from data-text in the HTML
@@ -109,7 +109,7 @@ h2 {
     font-style: normal;
     font-size: $fs-heading;
     text-align: center;
-    margin-block: $spc-small;
+    margin-bottom: $spc-xs;
 }
 
 p {

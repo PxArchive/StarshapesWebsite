@@ -84,7 +84,7 @@ h1 {
   font-weight: 600;
   font-size: 4rem;
   margin-inline: auto;
-  margin-block: 4rem;
+  margin-bottom: 1em;
 }
 h1::before, h1::after {
   content: attr(data-text);
@@ -108,7 +108,7 @@ h2 {
   font-style: normal;
   font-size: 2.25rem;
   text-align: center;
-  margin-block: 1rem;
+  margin-bottom: 0.5em;
 }
 
 p {
@@ -119,6 +119,74 @@ p {
 
 .alt-font {
   font-family: "Atkinson Hyperlegible", Helvetica, Sans-serif;
+}
+
+Nav {
+  height: 8rem;
+  display: grid;
+  position: fixed;
+  z-index: 99;
+  width: 100%;
+  border-bottom-left-radius: 500%;
+  border-bottom-right-radius: 500%;
+  background-color: #000000;
+}
+Nav ul {
+  color: #ffffff;
+  font-family: "Tajawal", Arial, Sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  font-size: 2.25rem;
+  text-align: center;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  gap: 1em;
+  align-items: center;
+  text-wrap: nowrap;
+}
+Nav ul li {
+  --glow-col: #FFFFFF;
+}
+Nav ul li a {
+  text-shadow: 0 0 0.7em var(--glow-col), 0 0 0.2em var(--glow-col), 0 0 0.3em var(--glow-col);
+}
+Nav ul li a::before {
+  box-shadow: 0 0 0.7em var(--glow-col), 0 0 0.2em var(--glow-col), 0 0 0.1em var(--glow-col) inset;
+}
+Nav ul li:nth-of-type(1) {
+  --glow-col: #0080ff;
+}
+Nav ul li:nth-of-type(2) {
+  --glow-col: #e080ff;
+}
+Nav ul li:nth-of-type(3) {
+  --glow-col: #ff4d4d;
+}
+Nav ul li:nth-of-type(4) {
+  --glow-col: #ffe000;
+}
+Nav ul li a::before {
+  content: "";
+  display: inline-block;
+  border-radius: 1em;
+  width: 0.75em;
+  height: 0.75em;
+  background-color: #ffffff;
+}
+
+a {
+  color: #ffffff;
+}
+
+.logo {
+  max-height: 7.2rem;
+  box-shadow: none;
+}
+
+.nav-spacer {
+  height: calc(8rem + 2em);
 }
 
 body {
@@ -215,7 +283,7 @@ hr {
   border-radius: 10px;
   background: #ffffff;
   margin-inline: auto;
-  margin-block: 2rem;
+  margin-block: 2em;
   overflow: visible;
 }
 hr::before, hr::after {
@@ -232,8 +300,8 @@ hr::before, hr::after {
 
 img {
   border-radius: 10px;
-  box-shadow: 0px 0px 1rem #ffffff;
-  max-width: calc(100% - 2rem);
+  box-shadow: 0px 0px 1em #ffffff;
+  max-width: calc(100% - 2em);
   margin-inline: auto;
   min-width: 100px;
   flex: 0 1 50%;
@@ -242,11 +310,11 @@ img {
 .textbox {
   background: rgba(6, 6, 6, 0.8862745098);
   border-radius: 3px 10px 10px 3px;
-  padding: 2rem;
+  padding: 2em;
   border-left: 2px solid #ffffff;
   overflow: visible;
   position: relative;
-  margin-block: 2rem;
+  margin-block: 2em;
   margin-inline: auto;
   max-width: 65ch;
 }
