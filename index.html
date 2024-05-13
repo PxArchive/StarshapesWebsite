@@ -8,33 +8,31 @@
     <link rel="shortcut icon" href="assets/Icons/logoicon.png" type="image/x-icon">
 </head>
 <body>
+    <input aria-hidden="true" type="checkbox" id="nav-toggle">
+    <label class="mobile-only nav-borgar-x" for="nav-toggle"><img src="assets/Icons/notborgar.png" alt=""></label>
+    <label class="mobile-only nav-borgar-b" for="nav-toggle"><img src="assets/Icons/borgar.png" alt=""></label>
     <nav>
         <ul>
-            <li class="blue"><a href="">
-                Purchase
-            </a></li>
-            <li><a href="">
-                Updates
-            </a></li>
-            <a href="">
-                <img class="logo" style="max-width: fit-content;" src="assets/img/logo-crop.png" alt="">
-            </a>
-            <li><a href="">
-                Contact
-            </a></li>
-            <li><a href="">
-                Press
-            </a></li>
+            <li><a href="">Purchase</a></li>
+            <li><a href="">Updates</a></li>
+            <a class="mobile-hidden" href=""><img class="logo" src="assets/img/logo-crop.png" alt=""></a>
+            <li><a href="">Contact</a></li>
+            <li><a href="">Press</a></li>
         </ul>
 
     </nav>
-    <div class="nav-spacer"></div>
+    <div class="nav-spacer mobile-hidden"></div>
     <main class="content-grid">
+        <a class="mobile-only center" href="#">
+            <img class="inline-logo" src="assets/img/logo-crop.png" alt="">
+        </a>
         <h1 data-text="Starshapes">Starshapes</h1>
         <h2>Tajawal Black Title</h2>
         <p>Tajawal Light Text</p>
         <p class="alt-font">Atkinson Hyperlegible text</p>
         <button>Buy on Steam</button>
+
+
 
         <div class="textbox">
             <h2>Textbox Title</h2>

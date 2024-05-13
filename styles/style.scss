@@ -6,8 +6,6 @@
 @import "./fonts";
 @import "./nav";
 
-
-
 body {
     background: $g-background; // use the gradient variable as background
     &::before {
@@ -156,7 +154,7 @@ hr {
     }
 }
 
-img {
+main img {
     border-radius: $border-radius;
     box-shadow: 0px 0px $spc-small $col-white;
     max-width: calc(100% - $spc-med); // add a 2rem margin while maintaining the centering from margin auto
@@ -231,3 +229,5 @@ p a {
         text-shadow: 0px 0px 0.8em $col-blue, 0px 0px 0.5em $col-cyan;
     }
 }
+
+@import "./mediaqueries";

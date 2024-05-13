@@ -7,6 +7,7 @@ Nav {
     z-index: 99;
     width: 105%; // this fuckery is to make the curved navigation bar look slightly better
     right: -2.5%; // this re-centers it after the weird-ass width.
+    top: 0;
     border-bottom-left-radius: 500%; // this is what causes the rounding
     border-bottom-right-radius: 500%; // same
     background-color: $col-black;
@@ -18,16 +19,6 @@ Nav {
         font-style: normal;
         font-size: $fs-heading;
         text-align: center;
-
-        // this version kinda works but is off center
-        // margin-inline: auto;
-        // display: flex;
-        // justify-content: space-evenly;
-        // flex-direction: row;
-        // list-style: none;
-        // gap: $spc-small;
-        // align-items: center;
-        // text-wrap: nowrap;
 
         display: grid;
         grid-template-columns: repeat(2, 1fr) auto repeat(2, 1fr); // 5 columns, middle one is different for the logo
@@ -43,11 +34,11 @@ Nav {
             --glow-col: #FFFFFF;
             a {
                 // set a glow on the text that can vary based on the elements glow colour variable
-                text-shadow: 0 0 0.7em var(--glow-col), 0 0 0.2em var(--glow-col), 0 0 0.3em var(--glow-col);
-                // &::before { 
-                //     // same for the icon before the text. Wont work with shapes when we replace them
-                //     box-shadow: 0 0 0.7em var(--glow-col), 0 0 0.2em var(--glow-col), 0 0 0.1em var(--glow-col) inset;;
-                // }
+                text-shadow: 0 0 0.7em var(--glow-col), 0 0 0.3em var(--glow-col), 0 0 0.2em var(--glow-col);
+
+                &:hover {
+                    text-shadow: 0 0 1.1em var(--glow-col), 0 0 0.5em var(--glow-col), 0 0 0.3em var(--glow-col);
+                }
             }
 
 
@@ -106,9 +97,16 @@ a {
     box-shadow: none;
     margin-inline: 0;
     padding: 0;
+    max-width: fit-content;
 }
 
 // offsets the page content so it doesn't hide behind the navigation bar
 .nav-spacer {
     height: calc($nav-height + $spc-med);
+}
+
+// mobile stuff
+
+#nav-toggle {
+    display: none;
 }
