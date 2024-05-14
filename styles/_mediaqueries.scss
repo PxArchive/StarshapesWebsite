@@ -15,6 +15,7 @@
 }
 
 @media (max-width: 1200px) {
+    // activate a smaller font/icon size to fit on smaller screens
     h1 {
         font-size: $fs-title-m;
     }
@@ -30,26 +31,32 @@
 
 @media (max-width: 960px){
     nav {
+        // move navigation to the bottom right
         bottom: 0;
-        top: unset;
         right: 0;
+        top: unset; 
 
+        // set it to the size of the burger menu
         width: 9rem;
         height: 8rem;
-        transition: 200ms;
+        transition: 200ms; //animation for the slide-in
 
+        // PC menu has bottom rounding, mobile has top left rounding
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0; 
         border-top-left-radius: 500%;
 
         ul {
+            // make the navigation links display correctly inside the menu
             display: none;
             flex-direction: column-reverse;
             align-items: flex-start;
 
             li {
-                $menu-offset: 12.5vw; // aight hear me out this is some big brain shit
+                // aight hear me out this is some big brain shit
+                $menu-offset: 12.5vw; // offset used in the next calculations, based on screen size
 
+                // multiply the offset depending on which number in the list each element is
                 &:nth-of-type(1) {
                         margin-left: calc($menu-offset * -1);
                     }
@@ -77,30 +84,28 @@
             display:grid;
         }
 
-        // mobile stuff
-
-        #nav-toggle {
-            &:checked ~ nav ul {
+        #nav-toggle { // this is the invisible checkbox, not the menu itself
+            &:checked ~ nav ul { // when the checkbox is checked, set the nav display type. "~" jumps to a same-level element rather than a child 
                 display: flex;
             }
-            &:checked ~ nav {
+            &:checked ~ nav { // when the checkbox is checked, change the nav height to the mobile variable, overriding the burger-size set previously. Same animation timer.
                 width: 100%;
                 height: $nav-height-m;
                 transition: 200ms;
             }
 
-
-            &:checked ~ .nav-borgar-b {
+            &:checked ~ .nav-borgar-b { // when checkbox is checked, make the burger icon transparent
                 opacity: 0%;
                 transition: 400ms;
             }
-            &:not(:checked) ~ .nav-borgar-x {
+
+            &:not(:checked) ~ .nav-borgar-x { // when checkbox NOT checked, make the "X" icon transparent
                 opacity: 0%;
                 transition: 400ms;
             }
         }
 
-        .nav-borgar-x, .nav-borgar-b {
+        .nav-borgar-x, .nav-borgar-b { // set the size and location of the burger menu/ X icon
             position: fixed;
             bottom: 0;
             right: 0;
@@ -109,5 +114,9 @@
             z-index: 100;
             width: 6rem;
             height: 6rem;
+        }
+
+        .nav-borgar-b { 
+            z-index: 101; // just to make sure its on top, since this is the only one that is clickable regardless of visibility.
         }
 }

@@ -414,8 +414,8 @@ p a:hover {
 @media (max-width: 960px) {
   nav {
     bottom: 0;
-    top: unset;
     right: 0;
+    top: unset;
     width: 9rem;
     height: 8rem;
     transition: 200ms;
@@ -471,5 +471,8 @@ p a:hover {
     z-index: 100;
     width: 6rem;
     height: 6rem;
+  }
+  .nav-borgar-b {
+    z-index: 101;
   }
 }/*# sourceMappingURL=style.css.map */
