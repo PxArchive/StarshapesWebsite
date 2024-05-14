@@ -5,7 +5,7 @@ Nav {
     display: grid;
     position: fixed;
     z-index: 99;
-    width: 105%; // this fuckery is to make the curved navigation bar look slightly better
+    width: 105%; // this stuff is to make the curved navigation bar look slightly better
     right: -2.5%; // this re-centers it after the weird-ass width.
     top: 0;
     border-bottom-left-radius: 500%; // this is what causes the rounding
@@ -15,7 +15,7 @@ Nav {
     ul {
         color: $col-white;
         font-family: $font-display;
-        font-weight: 900; // 900 means T H I C C
+        font-weight: 900;
         font-style: normal;
         font-size: $fs-heading;
         text-align: center;

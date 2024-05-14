@@ -55,7 +55,6 @@
             align-items: flex-start;
 
             li {
-                // aight hear me out this is some big brain shit
                 $menu-offset: 12.5vw; // offset used in the next calculations, based on screen size
 
                 // multiply the offset depending on which number in the list each element is
