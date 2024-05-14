@@ -167,14 +167,14 @@ main img {
     background: $col-boxbg;
     border-radius: 3px $border-radius $border-radius 3px;
     padding: $spc-med;
-    border-left: 2px solid $col-white;
-    overflow: visible;
+    border-left: 2px solid $col-white; // creates a white line as the base of the glow effect
+    overflow: visible; // this is needed otherwise the glow gets clipped
     position: relative;
     margin-block: $spc-med;
     margin-inline: auto;
     max-width: 65ch;
 
-    &::before /*, &::after */{ 
+    &::before, &::after{ //creates a glowy gradient blur to make the white line glow
 
         content: '';
         position: absolute; 
@@ -182,27 +182,25 @@ main img {
         top: -2px;
         left: -2px;
         width: 4px;
-        height: calc(100% + 4px);
+        height: calc(100% + 4px); // make the glowy gradient line slightly larger than the white line
 
         background: $g-boxgradient;
-        filter: blur(0.3rem);
+        filter: blur(0.3rem); 
         mix-blend-mode: screen; 
     }
 
-    &:hover::after {
-        content: '';
-        position: absolute; 
-        display: grid;
-        top: -2px;
-        left: -2px;
-        width: 4px;
-        height: calc(100% + 4px);
-
-        background: $g-boxgradient;
+    &::after { // sets the 2nd copy to be slightly larger blur, and transparent
+        opacity: 0%;
         filter: blur(0.5rem);
-        mix-blend-mode: screen; 
+        transition: 200ms;
+    }
+
+    &:hover::after { // makes 2nd copy visible on hover
+        opacity: 100%;
+        transition: 200ms;
     }
 }
+
 
 p a {
     text-decoration: none;
@@ -212,7 +210,7 @@ p a {
     padding: 0.15em 0.15em 0.05em;
     border-radius: 0.15em;
 
-    &::before {
+    &::before { // make a little link symbol for text-links
         content: '';
         display: inline-block;
         position: relative;
@@ -225,8 +223,8 @@ p a {
 
     &:hover {
         // background-color: #49777e7d;
-        filter: brightness(2);
-        text-shadow: 0px 0px 0.8em $col-blue, 0px 0px 0.5em $col-cyan;
+        filter: brightness(2); // makes stuff white on hover
+        text-shadow: 0px 0px 0.8em $col-blue, 0px 0px 0.5em $col-cyan; 
     }
 }
 

@@ -15,7 +15,7 @@ Nav {
     ul {
         color: $col-white;
         font-family: $font-display;
-        font-weight: 900;
+        font-weight: 900; // 900 means T H I C C
         font-style: normal;
         font-size: $fs-heading;
         text-align: center;
@@ -39,10 +39,17 @@ Nav {
                 &:hover {
                     text-shadow: 0 0 1.1em var(--glow-col), 0 0 0.5em var(--glow-col), 0 0 0.3em var(--glow-col);
                 }
+
+                &::before { // the ::before element is the funny shapes
+                    font-size: 0.8em;
+                    display: inline-block;
+                    margin-right: 0.25em;
+                }
             }
 
 
             // re-define the variable based on which number in the list each element is
+            // also add a funny symbol in front of each, based on the elements number in the list
             &:nth-of-type(1) {
                 --glow-col: #0080ff;
                 a::before {
@@ -71,20 +78,6 @@ Nav {
                 }
             }
         }
-
-        li a{
-
-            &::before {
-                font-size: 0.8em;
-                display: inline-block;
-                // border-radius: 1em;
-                // width: 0.6em;
-                // height: 0.6em;
-                // background-color: $col-white;
-            }
-
-
-        }
     }
 }
 
@@ -93,7 +86,7 @@ a {
 }
 
 .logo {
-    max-height: calc($nav-height * 0.65); // sets the size based on the nav bar height variable
+    max-height: calc($nav-height * 0.65); // sets the logo size based on the nav bar height variable
     box-shadow: none;
     margin-inline: 0;
     padding: 0;

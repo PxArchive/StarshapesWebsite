@@ -159,6 +159,11 @@ Nav ul li a {
 Nav ul li a:hover {
   text-shadow: 0 0 1.1em var(--glow-col), 0 0 0.5em var(--glow-col), 0 0 0.3em var(--glow-col);
 }
+Nav ul li a::before {
+  font-size: 0.8em;
+  display: inline-block;
+  margin-right: 0.25em;
+}
 Nav ul li:nth-of-type(1) {
   --glow-col: #0080ff;
 }
@@ -182,10 +187,6 @@ Nav ul li:nth-of-type(4) {
 }
 Nav ul li:nth-of-type(4) a::before {
   content: "⬣";
-}
-Nav ul li a::before {
-  font-size: 0.8em;
-  display: inline-block;
 }
 
 a {
@@ -338,7 +339,7 @@ main img {
   margin-inline: auto;
   max-width: 65ch;
 }
-.textbox::before {
+.textbox::before, .textbox::after {
   content: "";
   position: absolute;
   display: grid;
@@ -350,17 +351,14 @@ main img {
   filter: blur(0.3rem);
   mix-blend-mode: screen;
 }
-.textbox:hover::after {
-  content: "";
-  position: absolute;
-  display: grid;
-  top: -2px;
-  left: -2px;
-  width: 4px;
-  height: calc(100% + 4px);
-  background: linear-gradient(180deg, #0035FF 0%, #0097FF 50%, #d568e0 100%);
+.textbox::after {
+  opacity: 0%;
   filter: blur(0.5rem);
-  mix-blend-mode: screen;
+  transition: 200ms;
+}
+.textbox:hover::after {
+  opacity: 100%;
+  transition: 200ms;
 }
 
 p a {
