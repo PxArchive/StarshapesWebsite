@@ -120,4 +120,8 @@
         .nav-borgar-b { 
             z-index: 101; // just to make sure its on top, since this is the only one that is clickable regardless of visibility.
         }
+
+        .columns-two {
+            grid-template-columns: auto;
+        }
 }

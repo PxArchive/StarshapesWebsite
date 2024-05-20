@@ -85,7 +85,7 @@ h1 {
   font-weight: 600;
   font-size: 4rem;
   margin-inline: auto;
-  margin-bottom: 1em;
+  margin-bottom: 0.5em;
 }
 h1::before, h1::after {
   content: attr(data-text);
@@ -120,6 +120,14 @@ p {
   font-family: "Tajawal", Arial, Sans-serif;
   font-weight: 300;
   font-size: 1.125rem;
+}
+
+main ul {
+  font-family: "Tajawal", Arial, Sans-serif;
+  font-weight: 300;
+  font-size: 1.125rem;
+  color: #ffffff;
+  list-style-position: inside;
 }
 
 .alt-font {
@@ -265,10 +273,6 @@ a {
   grid-template-columns: 1fr 1fr;
   width: 90%;
   margin: 0 auto 0 auto;
-}
-
-html {
-  background-color: black;
 }
 
 body {
@@ -554,5 +558,8 @@ p a:hover {
   }
   .nav-borgar-b {
     z-index: 101;
+  }
+  .columns-two {
+    grid-template-columns: auto;
   }
 }/*# sourceMappingURL=style.css.map */

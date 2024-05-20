@@ -7,10 +7,6 @@
 @import "./nav";
 @import "./carousel";
 
-html {
-    background-color: black;
-}
-
 body {
     background: $g-background; // use the gradient variable as background
     &::before {

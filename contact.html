@@ -1,16 +1,56 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Starshapes</title>
     <link rel="stylesheet" href="styles/style.css">
-    <link rel="shortcut icon" href="assets/Icons/" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/Icons/logoicon.png" type="image/x-icon">
+    <script src="carousel-scroll.js"></script>
 </head>
+
 <body>
+    <input aria-hidden="true" type="checkbox" id="nav-toggle">
+    <label class="mobile-only nav-borgar-x" for=""><img src="assets/Icons/notborgar.png" alt=""></label>
+    <label class="mobile-only nav-borgar-b" for="nav-toggle"><img src="assets/Icons/borgar.png" alt=""></label>
+    
     <nav>
-        <h1>test</h1>
+        <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="updates.html">Updates</a></li>
+            <a class="mobile-hidden" href="index.html"><img class="logo" src="assets/img/logo-crop.png" alt=""></a>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="press.html">Press</a></li>
+        </ul>
     </nav>
     
+    <div class="nav-spacer mobile-hidden"></div>
+
+    <main class="content-grid">
+        <a class="mobile-only center" href="index.html">
+            <img class="inline-logo" src="assets/img/logo-crop.png" alt="">
+        </a>
+        
+        <h1 data-text="Contact">Contact</h1>
+        <hr>
+
+        <div class="textbox">
+            <h2>Business</h2>
+            <p><span style="font-weight: 900;">Business inquiries: </span> <a href="mailto:entiregamesbusiness@gmail.com">entiregamesbusiness@gmail.com</a></p>
+            <p><span style="font-weight: 900;">Support Email: </span> <a href="mailto:help.entiregames@gmail.com">help.entiregames@gmail.com</a></p>
+            <p><span style="font-weight: 900;">LinkedIn: </span> <a href="https://www.linkedin.com/company/101431275/" target="_blank"> Entire Games</a></p>
+        </div>
+
+        <div class="textbox">
+            <h2>Personal</h2>
+            <p><span style="font-weight: 900;">LinkedIn: </span> <a href="https://www.linkedin.com/in/peter-r-bjoern/" target="_blank"> Peter Bjørn</a></p>
+        </div>
+
+        <div class="spacer-large"></div>
+        <div class="spacer-large"></div>
+    </main>
+
 </body>
+
 </html>
