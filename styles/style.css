@@ -112,6 +112,10 @@ h2 {
   margin-bottom: 0.5em;
 }
 
+main > h2 {
+  text-transform: uppercase;
+}
+
 p {
   font-family: "Tajawal", Arial, Sans-serif;
   font-weight: 300;
@@ -210,6 +214,63 @@ a {
   display: none;
 }
 
+.carousel {
+  max-width: 100%;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+  overflow-x: hidden;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: inline mandatory;
+}
+
+.carousel-img {
+  width: 100%;
+  scroll-snap-align: center;
+}
+.carousel-img img {
+  inline-size: 100%;
+  max-height: 90svh;
+  aspect-ratio: 5/3;
+  -o-object-fit: scale-down;
+     object-fit: scale-down;
+}
+
+.carousel-line {
+  height: 0.15rem;
+  width: 100%;
+  background-color: var(--clr-highlight);
+  box-shadow: 0px 0px 1rem var(--clr-glow);
+  border-radius: 3px;
+}
+
+.carousel-controller {
+  --size: 6rem;
+  width: var(--size);
+  height: var(--size);
+  padding-top: 1.25rem;
+}
+
+.carousel-L {
+  justify-self: start;
+}
+
+.carousel-R {
+  justify-self: end;
+}
+
+.controller-container {
+  transform: translateY(50%);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 90%;
+  margin: 0 auto 0 auto;
+}
+
+html {
+  background-color: black;
+}
+
 body {
   background: linear-gradient(180deg, #153236 0%, #010013 50%, #010013 70%, #0b1925 100%);
 }
@@ -295,6 +356,15 @@ button:active::before {
   transition: 0ms;
 }
 
+.columns-two {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 2em;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+
 hr {
   --width-offset: 0.3rem;
   display: grid;
@@ -319,9 +389,9 @@ hr::before, hr::after {
   mix-blend-mode: screen;
 }
 
-main img {
+main img, main iframe {
   border-radius: 10px;
-  box-shadow: 0px 0px 1em #ffffff;
+  box-shadow: 0px 0px 1em #ffffff, 0px 0px 0.5em #ffffff;
   max-width: calc(100% - 2em);
   margin-inline: auto;
   min-width: 100px;
@@ -359,6 +429,18 @@ main img {
 .textbox:hover::after {
   opacity: 100%;
   transition: 200ms;
+}
+
+.spacer-small {
+  height: 1em;
+}
+
+.spacer-med {
+  height: 2em;
+}
+
+.spacer-large {
+  height: 4em;
 }
 
 p a {

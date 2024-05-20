@@ -5,6 +5,11 @@
 @import "./variables";
 @import "./fonts";
 @import "./nav";
+@import "./carousel";
+
+html {
+    background-color: black;
+}
 
 body {
     background: $g-background; // use the gradient variable as background
@@ -60,7 +65,6 @@ body {
 .content-grid > .fullwidth {
     grid-column: fullwidth; // assign the fullwidth class to all 5 columns, fulling the entire width of the screen
 }
-
 
 button {
 
@@ -127,6 +131,15 @@ button {
     }
 }
 
+.columns-two{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: $spc-med;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
 hr {
     --width-offset: 0.3rem; // distance that the blur is wider than the original line
     display: grid; // to make stuff work better
@@ -154,9 +167,9 @@ hr {
     }
 }
 
-main img {
+main img, main iframe {
     border-radius: $border-radius;
-    box-shadow: 0px 0px $spc-small $col-white;
+    box-shadow: 0px 0px $spc-small $col-white, 0px 0px $spc-xs $col-white;
     max-width: calc(100% - $spc-med); // add a 2rem margin while maintaining the centering from margin auto
     margin-inline: auto;
     min-width: 100px;
@@ -201,6 +214,17 @@ main img {
     }
 }
 
+.spacer-small {
+    height: $spc-small;
+}
+
+.spacer-med {
+    height: $spc-med;
+}
+
+.spacer-large {
+    height: $spc-large;
+}
 
 p a {
     text-decoration: none;
@@ -227,5 +251,7 @@ p a {
         text-shadow: 0px 0px 0.8em $col-blue, 0px 0px 0.5em $col-cyan; 
     }
 }
+
+
 
 @import "./mediaqueries";

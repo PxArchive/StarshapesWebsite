@@ -7,6 +7,7 @@
     <title>Starshapes</title>
     <link rel="stylesheet" href="styles/style.css">
     <link rel="shortcut icon" href="assets/Icons/logoicon.png" type="image/x-icon">
+    <script src="carousel-scroll.js"></script>
 </head>
 
 <body>
@@ -31,11 +32,58 @@
             <img class="inline-logo" src="assets/img/logo-crop.png" alt="">
         </a>
 
-        <h1 data-text="Starshapes">Starshapes</h1>
-        <h2>Tajawal Black Title</h2>
-        <p>Tajawal Light Text</p>
-        <p class="alt-font">Atkinson Hyperlegible text</p>
-        <button>Buy on Steam</button>
+        <!-- <h1 data-text="Starshapes">Starshapes</h1> -->
+        <h2>Teaser Trailer</h2>
+
+        <iframe width="960" height="540" src="https://www.youtube.com/embed/nry_f6uTbfs?si=rj8Mhhxx9rJrr5M2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        
+        <p class="alt-font center"><br>Trailer 1 (2024)</p>
+
+        <div class="spacer-small"></div>
+
+        <div class="columns-two">
+            <button onclick="window.location.href='https://store.steampowered.com/app/2386910/Starshapes/'" >Buy on Steam</button>
+            <button onclick="window.location.href='https://www.youtube.com/@EntireGamesOfficial'" >More Trailers</button>
+        </div>
+        
+        <div class="spacer-small"></div>
+
+        <hr>
+        
+
+        <h2>Features</h2>
+
+
+        <div class="controller-container">
+            <button onclick="ScrollLeft()" class="carousel-controller carousel-L"><h2> ❮ </h2></button>
+            <button onclick="ScrollRight()" class="carousel-controller carousel-R"><h2> ❯ </h2></button>
+           </div>
+
+            <div class="carousel-line"></div>
+
+            <div id="carousel" class="carousel">
+                <div class="carousel-img">
+                    <a href=""><img src="assets/img/placeholder-16-9.jpg" alt=""></a>
+                    <div class="spacer-small"></div>
+                    <h2>Textbox Title</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt voluptates repudiandae eos expedita maiores, ea ad cupiditate iusto dolores voluptas non tempora, ut quae assumenda quo. Quisquam, ex delectus sed inventore vero itaque eligendi officia vel earum harum! Necessitatibus maxime voluptatum nobis quam, debitis quidem deleniti rerum animi doloribus minus?</p>
+                
+                </div>
+                <div class="carousel-img">
+                    <a href=""><img src="assets/img/placeholder-16-9.jpg" alt=""></a>
+                </div>
+                <div class="carousel-img">
+                    <a href=""><img src="assets/img/placeholder-16-9.jpg" alt=""></a>
+                </div>
+            </div>
+            
+            <div class="spacer-small"></div>
+
+            <div class="carousel-line"></div>
+
+
+
+
 
         <div class="textbox">
             <h2>Textbox Title</h2>
@@ -46,6 +94,12 @@
         <hr>
         <img src="assets/img/placeholder-16-9.jpg" alt="">
         <hr>
+
+
+        <h2>Tajawal Black Title</h2>
+        <p>Tajawal Light Text</p>
+        <p class="alt-font">Atkinson Hyperlegible text</p>
+        <button>Buy on Steam</button>
     </main>
 
 </body>

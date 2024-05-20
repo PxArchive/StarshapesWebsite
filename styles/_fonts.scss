@@ -112,6 +112,10 @@ h2 {
     margin-bottom: $spc-xs;
 }
 
+main > h2 {
+    text-transform: uppercase;
+}
+
 p {
     font-family: $font-display;
     font-weight: 300;
