@@ -1,5 +1,6 @@
 @charset "UTF-8";
 * {
+  scroll-padding-top: 10rem;
   margin: 0;
   padding: 0;
   text-decoration: none;
@@ -20,7 +21,6 @@ img, picture, svg, video {
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
-    scroll-padding-top: 3rem;
   }
 }
 @font-face {
@@ -122,12 +122,21 @@ p {
   font-size: 1.125rem;
 }
 
+.date {
+  font-family: "Tajawal", Arial, Sans-serif;
+  font-weight: 300;
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.5019607843);
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
 main ul {
   font-family: "Tajawal", Arial, Sans-serif;
   font-weight: 300;
   font-size: 1.125rem;
   color: #ffffff;
-  list-style-position: inside;
+  margin-left: 1em;
 }
 
 .alt-font {
@@ -246,7 +255,7 @@ a {
 
 .carousel-line {
   height: 0.15rem;
-  width: 100%;
+  width: 30%;
   background-color: var(--clr-highlight);
   box-shadow: 0px 0px 1rem var(--clr-glow);
   border-radius: 3px;
@@ -276,7 +285,7 @@ a {
 }
 
 body {
-  background: linear-gradient(180deg, #153236 0%, #010013 50%, #010013 70%, #0b1925 100%);
+  background: linear-gradient(180deg, #142c30 0%, #010013 50%, #010013 70%, #0b1925 100%);
 }
 body::before {
   content: "";
@@ -406,12 +415,19 @@ main img, main iframe {
   background: rgba(6, 6, 6, 0.8862745098);
   border-radius: 3px 10px 10px 3px;
   padding: 2em;
+  padding-top: 1em;
   border-left: 2px solid #ffffff;
   overflow: visible;
   position: relative;
   margin-block: 2em;
   margin-inline: auto;
   max-width: 65ch;
+  min-width: 65%;
+}
+.textbox img {
+  margin-top: 1em;
+  border: 2px solid rgba(255, 255, 255, 0.5019607843);
+  box-shadow: none;
 }
 .textbox::before, .textbox::after {
   content: "";

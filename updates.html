@@ -14,7 +14,7 @@
     <input aria-hidden="true" type="checkbox" id="nav-toggle">
     <label class="mobile-only nav-borgar-x" for=""><img src="assets/Icons/notborgar.png" alt=""></label>
     <label class="mobile-only nav-borgar-b" for="nav-toggle"><img src="assets/Icons/borgar.png" alt=""></label>
-    
+
     <nav>
         <ul>
             <li><a href="about.html">About</a></li>
@@ -24,18 +24,73 @@
             <li><a href="press.html">Press</a></li>
         </ul>
     </nav>
-    
+
     <div class="nav-spacer mobile-hidden"></div>
 
     <main class="content-grid">
         <a class="mobile-only center" href="index.html">
             <img class="inline-logo" src="assets/img/logo-crop.png" alt="">
         </a>
-        
-        <h1 data-text="Purchase">Purchase</h1>
+
+        <h1 data-text="Updates">Updates</h1>
+
+        <hr class="breakout">
+        <h2>Overview</h2>        
+            <a class="center"href="#u03"><button>Update 3</button></a>
+            <p class="date center">05 / 03 / 2024 - Latest Update <br><br></p>
+
+            <a class="center"href="#u02"><button>Update 2</button></a>
+            <p class="date center">29 / 02 / 2024 <br><br></p>
+
+            <a class="center"href="#u01"><button>Update 1</button></a>
+            <p class="date center">25 / 01 / 2024 <br><br></p>
         <hr>
-        <h2>Steam (PC)</h2>
-        <iframe src="https://store.steampowered.com/widget/2386910/" frameborder="0" width="646" height="190" style="margin-inline: auto; box-shadow: none; border-radius: 0;"></iframe>
+
+        <div class="textbox">
+            <h2 style="margin-bottom: 0;" id="u03">Update 3 - Optimization</h2>
+            <p class="date center">05 / 03 / 2024</p>
+            <ul>
+                <br>
+                <li>Fixed memory leak related to updating Shapes plugin</li>
+                <li>Improved performance by using object pool for particle effects</li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <div class="textbox">
+            <h2 style="margin-bottom: 0;" id="u02">Update 2 - Save / Load System</h2>
+            <p class="date center">29 / 02 / 2024</p>
+
+            <img src="assets/img/28a.png" alt="Screenshot showcasing the save system update">
+
+            <ul>
+                <br>
+                <li>Fixed memory leak related to updating Shapes plugin</li>
+                <li>Added Reset Game button to Settings</li>
+                <li>Fixed camera being inverted in WorldHub</li>
+                <li>Various rendering fixes related to background colors</li>
+                <li>Added Node Status System with UI</li>
+                <li>Added Save / Load Game System </li>
+            </ul>
+        </div>
+
+        <hr>
+
+        <div class="textbox">
+            <h2 style="margin-bottom: 0;" id="u01">Update 1 - World Node Dev Tool (Projector)</h2>
+            <p class="date center">25 / 01 / 2024</p>
+
+            <img src="assets/img/10a.png" alt="Screenshot showcasing the Projector development tool">
+
+            <ul>
+                <br>
+                <li>Added hover feedback on Nodes in WorldHub view and Puzzles in Area view</li>
+                <li>Added WorldHub Projector for designing world map on a 2D plane and projecting it onto a 3D sphere,
+                    which is to be viewed from inside like a skydome</li>
+            </ul>
+        </div>
+
         <div class="spacer-large"></div>
         <div class="spacer-large"></div>
     </main>

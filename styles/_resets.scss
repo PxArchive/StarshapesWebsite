@@ -1,6 +1,8 @@
 
 // removes annoying padding that comes default in HTML
 * {
+    //scroll-padding-top: calc($nav-height * 1.25);
+    scroll-padding-top: 10rem;
     margin: 0;
     padding: 0;
     text-decoration: none;
@@ -24,6 +26,6 @@ img, picture, svg, video {
 @media (prefers-reduced-motion: no-preference) {
     html {
         scroll-behavior: smooth;
-        scroll-padding-top: 3rem;
+        //scroll-padding-top: 10em;
     }
 }

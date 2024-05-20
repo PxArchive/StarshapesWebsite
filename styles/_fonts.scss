@@ -85,6 +85,7 @@ h1 {
     font-size: $fs-title;
     margin-inline: auto; // centers the text. Text-align center does not work due to width:fit-content making it too short.
     margin-bottom: $spc-xs;
+    //text-shadow: 0px 0px 1.5em black; // TODO: Maybe remove if color band behind text is too obvious
 
     &::before , &::after { // create a clone of the text object.
         content: attr(data-text); // write the text from data-text in the HTML
@@ -122,12 +123,21 @@ p {
     font-size: $fs-text;
 }
 
+.date {
+    font-family: $font-display;
+    font-weight: 300;
+    font-size: $fs-text;
+    color: $col-faded;
+    width: fit-content;
+}
+
 main ul {
     font-family: $font-display;
     font-weight: 300;
     font-size: $fs-text;
     color: $col-white;
-    list-style-position: inside;
+    margin-left: 1em;
+    //list-style-position: inside;
 }
 
 .alt-font {

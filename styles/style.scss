@@ -176,14 +176,22 @@ main img, main iframe {
     background: $col-boxbg;
     border-radius: 3px $border-radius $border-radius 3px;
     padding: $spc-med;
+    padding-top: $spc-small;
     border-left: 2px solid $col-white; // creates a white line as the base of the glow effect
     overflow: visible; // this is needed otherwise the glow gets clipped
     position: relative;
     margin-block: $spc-med;
     margin-inline: auto;
     max-width: 65ch;
+    min-width: 65%;
 
-    &::before, &::after{ //creates a glowy gradient blur to make the white line glow
+    img {
+        margin-top: $spc-small;
+        border: 2px solid $col-faded;
+        box-shadow: none;
+    }
+
+    &::before, &::after { //creates a glowy gradient blur to make the white line glow
 
         content: '';
         position: absolute; 
