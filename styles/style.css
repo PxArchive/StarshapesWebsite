@@ -248,12 +248,12 @@ a {
   margin-top: -8rem;
 }
 
-.carousel-img {
+.carousel-slide {
   width: 100%;
   scroll-snap-align: center;
 }
-.carousel-img img {
-  --gap: 5%;
+.carousel-slide img {
+  --gap: 2rem;
   inline-size: calc(100% - var(--gap));
   aspect-ratio: 16/9;
   -o-object-fit: scale-down;
@@ -261,7 +261,7 @@ a {
   margin-block: 1rem;
   margin-inline: calc(var(--gap) / 2);
 }
-.carousel-img h2, .carousel-img p {
+.carousel-slide h2, .carousel-slide p {
   max-width: 45ch;
   text-align: center;
   margin-inline: auto;
@@ -302,6 +302,61 @@ a {
 }
 .controller-container .carousel-L {
   justify-self: start;
+}
+
+.carousel-indicator {
+  display: grid;
+  grid-auto-flow: column;
+  place-items: center;
+  align-items: center;
+  width: -moz-fit-content;
+  width: fit-content;
+  gap: 0.5rem;
+  margin-inline: auto;
+}
+.carousel-indicator .carousel-dot {
+  border-radius: 1rem;
+  font-size: 1.5rem;
+}
+.carousel-indicator .carousel-dot[data-active=false] {
+  opacity: 0.6;
+  transition: 200ms;
+  text-shadow: none;
+  cursor: pointer;
+}
+.carousel-indicator .carousel-dot[data-active=true] {
+  opacity: 1;
+  transition: 200ms;
+  scale: 1.2;
+}
+.carousel-indicator .carousel-dot:nth-child(1) {
+  color: #0080ff;
+  transform: scaleY(85%);
+}
+.carousel-indicator .carousel-dot:nth-child(1)[data-active=true] {
+  color: #ffffff;
+  text-shadow: 0 0 0.5em #0080ff, 0 0 0.15em #a8cfd4;
+}
+.carousel-indicator .carousel-dot:nth-child(2) {
+  color: #e080ff;
+}
+.carousel-indicator .carousel-dot:nth-child(2)[data-active=true] {
+  color: #ffffff;
+  text-shadow: 0 0 0.5em #e080ff, 0 0 0.15em #e080ff;
+}
+.carousel-indicator .carousel-dot:nth-child(3) {
+  color: #ff4d4d;
+}
+.carousel-indicator .carousel-dot:nth-child(3)[data-active=true] {
+  color: #ffffff;
+  text-shadow: 0 0 0.5em #ff4d4d, 0 0 0.15em #ff4d4d;
+}
+.carousel-indicator .carousel-dot:nth-child(4) {
+  color: #edae4a;
+}
+.carousel-indicator .carousel-dot:nth-child(4)[data-active=true] {
+  color: #ffffff;
+  text-shadow: 0 0 0.5em #edae4a, 0 0 0.15em #edae4a;
 }
 
 body {
@@ -532,6 +587,12 @@ p a:hover {
   }
 }
 @media (max-width: 960px) {
+  main img {
+    box-shadow: 0px 0px 0.5em #ffffff;
+  }
+  .carousel-wrapper {
+    margin-top: -4rem;
+  }
   nav {
     bottom: 0;
     right: 0;

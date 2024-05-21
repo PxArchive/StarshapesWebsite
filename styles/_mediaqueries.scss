@@ -32,6 +32,13 @@
 
 // switch to mobile layout at this width
 @media (max-width: 960px){
+    main img {
+        box-shadow: 0px 0px $spc-xs $col-white;
+    }
+
+    .carousel-wrapper {
+        margin-top: -4rem; // compensate for the controller-container being moved down with transform, leaving a large blank space
+    }
     nav {
         // move navigation to the bottom right
         bottom: 0;

@@ -15,12 +15,12 @@
     margin-top: -8rem; // compensate for the controller-container being moved down with transform, leaving a large blank space
 }
 
-.carousel-img {
+.carousel-slide {
     width: 100%;
     scroll-snap-align:center; // makes the mobile scrolling snap to having the image on the middle of the screen, rather than an edge
     
     img {
-        --gap: 5%; // space between each carousel element relative to their width.
+        --gap: 2rem; // space between each carousel element relative to their width.
         inline-size: calc(100% - var(--gap)); // shrink images to compensate for gap, so the glow is not cut off
         // max-height: 80svh;
         aspect-ratio: 16 / 9;
@@ -82,4 +82,81 @@
     .carousel-L {
         justify-self: start;
     }
+}
+
+.carousel-indicator {
+    display: grid;
+    grid-auto-flow: column;
+    place-items: center;
+    align-items: center;
+    width: fit-content;
+    gap: 0.5rem;
+    margin-inline: auto;
+
+
+    .carousel-dot {
+
+        border-radius: 1rem;
+        font-size: 1.5rem;
+
+        &[data-active="false"] {
+            opacity: 0.6;
+            transition: 200ms;
+            text-shadow: none;
+            cursor: pointer;
+        }
+
+
+        &[data-active="true"] {
+            opacity: 1;
+            transition: 200ms;
+            scale: 1.2;
+        }
+
+        &:nth-child(1) {
+            color: $col-blue;
+            transform: scaleY(85%);
+            &[data-active="true"] {
+                color: $col-white;
+                text-shadow: 0 0 0.5em $col-blue, 0 0 0.15em $col-cyan;
+            }
+
+        }
+
+        &:nth-child(2) {
+            color: $col-purple;
+            &[data-active="true"] {
+                color: $col-white;
+                text-shadow: 0 0 0.5em $col-purple, 0 0 0.15em $col-purple;
+            }
+
+        }
+
+        &:nth-child(3) {
+            color: $col-red;
+            &[data-active="true"] {
+                color: $col-white;
+                text-shadow: 0 0 0.5em $col-red, 0 0 0.15em $col-red;
+            }
+
+        }
+
+        &:nth-child(4) {
+            color: $col-orange;
+            &[data-active="true"] {
+                color: $col-white;
+                text-shadow: 0 0 0.5em $col-orange, 0 0 0.15em $col-orange;
+            }
+
+        }
+    }
+
+    // .carousel-line {
+    //     min-width: 0rem;
+    //     max-width: 6rem;
+    //     height: 0.15rem;
+    //     background-color: $col-white;
+    //     border-radius: $border-radius;
+    //     transform: translateY(100%);
+    // }
 }
