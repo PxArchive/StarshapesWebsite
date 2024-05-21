@@ -232,13 +232,20 @@ a {
 }
 
 .carousel {
-  max-width: 100%;
+  max-width: 80%;
+  margin-inline: auto;
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 100%;
   overflow-x: hidden;
   overscroll-behavior-inline: contain;
   scroll-snap-type: inline mandatory;
+  z-index: 3;
+  position: relative;
+}
+
+.carousel-wrapper {
+  margin-top: -8rem;
 }
 
 .carousel-img {
@@ -247,41 +254,56 @@ a {
 }
 .carousel-img img {
   inline-size: 100%;
-  max-height: 90svh;
-  aspect-ratio: 5/3;
+  aspect-ratio: 16/9;
   -o-object-fit: scale-down;
      object-fit: scale-down;
+  margin-block: 1rem;
+  margin-inline: 2.5%;
 }
-
-.carousel-line {
-  height: 0.15rem;
-  width: 30%;
-  background-color: var(--clr-highlight);
-  box-shadow: 0px 0px 1rem var(--clr-glow);
-  border-radius: 3px;
-}
-
-.carousel-controller {
-  --size: 6rem;
-  width: var(--size);
-  height: var(--size);
-  padding-top: 1.25rem;
-}
-
-.carousel-L {
-  justify-self: start;
-}
-
-.carousel-R {
-  justify-self: end;
+.carousel-img h2, .carousel-img p {
+  max-width: 45ch;
+  text-align: center;
+  margin-inline: auto;
 }
 
 .controller-container {
-  transform: translateY(50%);
+  transform: translateY(252.5%);
   display: grid;
   grid-template-columns: 1fr 1fr;
-  width: 90%;
-  margin: 0 auto 0 auto;
+  aspect-ratio: 9/1;
+  width: 100%;
+  z-index: 2;
+  position: relative;
+}
+.controller-container .carousel-controller {
+  --size: 5rem;
+  box-shadow: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  place-items: center;
+  z-index: 40;
+  position: relative;
+}
+.controller-container .carousel-controller::before {
+  content: none;
+}
+.controller-container .carousel-controller:active {
+  background-color: transparent;
+  transition: 0ms;
+}
+.controller-container .carousel-controller:active h2 {
+  color: #ffffff;
+  text-shadow: 0px 0px 0.3em #a8cfd4, 0 0 0.1em #ffffff;
+}
+.controller-container .carousel-controller h2 {
+  font-size: min(7vw, 4rem);
+}
+.controller-container .carousel-R {
+  justify-self: end;
+}
+.controller-container .carousel-L {
+  justify-self: start;
 }
 
 body {
@@ -512,6 +534,9 @@ p a:hover {
   }
 }
 @media (max-width: 960px) {
+  .carousel {
+    overflow-x: scroll;
+  }
   nav {
     bottom: 0;
     right: 0;

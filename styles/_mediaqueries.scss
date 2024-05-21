@@ -32,6 +32,10 @@
 
 // switch to mobile layout at this width
 @media (max-width: 960px){
+    .carousel {
+        overflow-x: scroll;
+    }
+    
     nav {
         // move navigation to the bottom right
         bottom: 0;
