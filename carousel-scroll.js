@@ -1,74 +1,86 @@
-
 let dot1;
 let dot2;
 let dot3;
 let dot4;
 
 function ScrollLeft() {
-    // find the carousel
+    // Find the carousel
     let track = document.getElementById('carousel');
     let trackWidth = track.getBoundingClientRect().width;
 
-    // scroll left by that amount
-    track.scrollBy(-trackWidth, 0);
+    if (GetScrollPercent() <= 0) {
+        // Loop back to end
+        track.scrollBy(trackWidth * 4, 0);
+    }
+    else {
+        // Scroll left by that amount
+        track.scrollBy(-trackWidth, 0);
+    }
 }
 
 function ScrollRight() {
-    // find the carousel
+    // Find the carousel
     let track = document.getElementById('carousel');
     let trackWidth = track.getBoundingClientRect().width;
 
-    // scroll right by that amount
-    track.scrollBy(trackWidth, 0);
+    if (GetScrollPercent() >= 100) {
+        // Loop back to start
+        track.scrollBy(-trackWidth * 4, 0);
+    }
+    else {
+        // Scroll right by that amount
+        track.scrollBy(trackWidth, 0);
+    }
 }
 
 function ScrollToSlide(page) {
-    // find the carousel
+    // Find the carousel
     let track = document.getElementById('carousel');
     let trackWidth = track.getBoundingClientRect().width;
 
-    // scroll to slide number 
+    // Scroll to slide number 
     track.scrollTo(trackWidth * (page - 1), 0)
 }
 
-function SetActivePage() {
-    const scrollableElement = document.getElementById('carousel')
-
+function GetScrollPercent() {
+    const scrollableElement = document.getElementById('carousel');
     const scrollWidth = scrollableElement.scrollWidth;    // source: ChatGPT
     const scrollLeft = scrollableElement.scrollLeft;    // source: ChatGPT
     const clientWidth = scrollableElement.clientWidth;    // source: ChatGPT
-    const scrollPercentage = (scrollLeft / (scrollWidth - clientWidth)) * 100;    // source: ChatGPT
+    let percentage = ((scrollLeft / (scrollWidth - clientWidth)) * 100);    // source: ChatGPT
+    return percentage;
+}
 
+function SetActivePage() {
+    let scrollPercentage = GetScrollPercent();
+
+    // Turn off all indicators
     dot1.setAttribute('data-active', 'false');
     dot2.setAttribute('data-active', 'false');
     dot3.setAttribute('data-active', 'false');
     dot4.setAttribute('data-active', 'false');
 
-    if (scrollPercentage >= 30 && scrollPercentage <= 40) {
+    // Turn on current indicator depending on scroll percentage
+    if (scrollPercentage >= 30 && scrollPercentage <= 60) {
         dot2.setAttribute('data-active', 'true');
     }
-
-    else if (scrollPercentage >= 60 && scrollPercentage <= 70) {
+    else if (scrollPercentage >= 60 && scrollPercentage <= 90) {
         dot3.setAttribute('data-active', 'true');
     }
-
     else if (scrollPercentage >= 90 && scrollPercentage <= 101) {
         dot4.setAttribute('data-active', 'true');
     }
-
     else {
         dot1.setAttribute('data-active', 'true');
     }
 
-    setTimeout(function () {
-        SetActivePage();
-    }, 100);
+    // Run function again after 25ms to refresh status
+    setTimeout(function () { SetActivePage(); }, 25);
 }
 
 function AutoScroll() {
-    setTimeout(function () {
-        AutoScroll();
-    }, 100);
+    ScrollRight();
+    setTimeout(function () { AutoScroll(); }, 5000);
 }
 
 
