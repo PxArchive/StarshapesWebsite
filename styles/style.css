@@ -253,12 +253,13 @@ a {
   scroll-snap-align: center;
 }
 .carousel-img img {
-  inline-size: 100%;
+  --gap: 5%;
+  inline-size: calc(100% - var(--gap));
   aspect-ratio: 16/9;
   -o-object-fit: scale-down;
      object-fit: scale-down;
   margin-block: 1rem;
-  margin-inline: 2.5%;
+  margin-inline: calc(var(--gap) / 2);
 }
 .carousel-img h2, .carousel-img p {
   max-width: 45ch;
@@ -276,14 +277,11 @@ a {
   position: relative;
 }
 .controller-container .carousel-controller {
-  --size: 5rem;
   box-shadow: none;
   border: none;
   margin: 0;
   padding: 0;
   place-items: center;
-  z-index: 40;
-  position: relative;
 }
 .controller-container .carousel-controller::before {
   content: none;
@@ -534,9 +532,6 @@ p a:hover {
   }
 }
 @media (max-width: 960px) {
-  .carousel {
-    overflow-x: scroll;
-  }
   nav {
     bottom: 0;
     right: 0;
@@ -602,5 +597,10 @@ p a:hover {
   }
   .columns-two {
     grid-template-columns: auto;
+  }
+}
+@media (hover: none) {
+  .carousel {
+    overflow-x: scroll;
   }
 }/*# sourceMappingURL=style.css.map */

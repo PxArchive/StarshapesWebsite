@@ -1,31 +1,32 @@
 .carousel {
-    max-width: 80%;
-    margin-inline: auto;
+    max-width: 80%; // makes space for the buttons on either side
+    margin-inline: auto; // center
     display: grid;
-    grid-auto-flow: column;
-    grid-auto-columns: 100%;
-    overflow-x: hidden;
-    overscroll-behavior-inline: contain;
-    scroll-snap-type: inline mandatory;
-    z-index: 3;
-    position: relative;
+    grid-auto-flow: column; //automatically creates the right number of columns
+    grid-auto-columns: 100%; // each column is as wide as this element
+    overflow-x: hidden; // only 1 column is visible
+    overscroll-behavior-inline: contain; // i forgor what this does
+    scroll-snap-type: inline mandatory; // makes the carousel snap to image positions on mobile
+    z-index: 3; // place above the button element so the container does not obstruct scrolling
+    position: relative; // make z-index work
 }
 
 .carousel-wrapper {
-    margin-top: -8rem;
+    margin-top: -8rem; // compensate for the controller-container being moved down with transform, leaving a large blank space
 }
 
 .carousel-img {
     width: 100%;
-    scroll-snap-align:center;
+    scroll-snap-align:center; // makes the mobile scrolling snap to having the image on the middle of the screen, rather than an edge
     
     img {
-        inline-size: 100%;
+        --gap: 5%; // space between each carousel element relative to their width.
+        inline-size: calc(100% - var(--gap)); // shrink images to compensate for gap, so the glow is not cut off
         // max-height: 80svh;
         aspect-ratio: 16 / 9;
         object-fit: scale-down;
         margin-block: 1rem;
-        margin-inline: 2.5%;
+        margin-inline: calc(var(--gap) / 2); // place half of the gap on either side of the image
     }
 
     h2, p {
@@ -36,29 +37,28 @@
 }
 
 .controller-container {
-    transform: translateY(calc(100% * 9 * (9/16) * 0.8 * 0.5 + 50%));
+    transform: translateY(calc(100% * 9 * (9/16) * 0.8 * 0.5 + 50%)); // moves the next/previous buttons to the sides of the image in the carousel
+    // Multiply by 9 due to the aspect ratio. 
+    // Multiply by the aspect ratio of the image to scale accurately (inverted due to Y-axis).
+    // Multiply by 0.8 for the 80% width of the image
+    // multiply by 0.5 to move it down by half of the image's height
+    // add 50% to center the buttons relative to their own height
     display: grid;
     grid-template-columns: 1fr 1fr;
-    aspect-ratio: 9 / 1;
+    aspect-ratio: 9 / 1;  // important to maintain some kind of aspect ratio to scale it to the images
     width: 100%;
-    z-index: 2;
-    position: relative;
+    z-index: 2; // place it behind the image so that the image is clickable/scrollable
+    position: relative; // make z-index work
 
     .carousel-controller {
-        --size: 5rem;
-
-        // width: var(--size);
-        // height: var(--size);
-        box-shadow: none;
-        border: none;
+        box-shadow: none; // removes styling from previous button classes
+        border: none; // removes styling from previous button classes
         margin: 0;
         padding: 0;
         place-items: center;
-        z-index: 40;
-        position: relative;
 
         &::before {
-            content: none;
+            content: none; // removes styling from previous button classes
         }
 
         &:active {
@@ -71,7 +71,7 @@
         } 
 
         h2 {
-            font-size: min(7vw, 4rem);
+            font-size: min(7vw, 4rem); // scale the buttons with the screen size
         }
     }
 

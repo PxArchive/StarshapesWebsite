@@ -32,10 +32,6 @@
 
 // switch to mobile layout at this width
 @media (max-width: 960px){
-    .carousel {
-        overflow-x: scroll;
-    }
-    
     nav {
         // move navigation to the bottom right
         bottom: 0;
@@ -45,7 +41,7 @@
         // set it to the size of the burger menu
         width: 9rem;
         height: 8rem;
-        transition: 200ms; //animation for the slide-in
+        transition: 200ms; // animation for the slide-in
 
         // PC menu has bottom rounding, mobile has top left rounding
         border-bottom-left-radius: 0;
@@ -128,4 +124,11 @@
         .columns-two {
             grid-template-columns: auto;
         }
+}
+
+@media (hover: none) { // if the device is not capable of hovering (assume it is a touch device)
+    .carousel {
+        overflow-x: scroll; // lets mobile layout swipe to move carousel
+    }
+    
 }
