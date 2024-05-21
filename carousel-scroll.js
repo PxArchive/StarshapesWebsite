@@ -1,7 +1,13 @@
+
+let dot1;
+let dot2;
+let dot3;
+let dot4;
+
 function ScrollLeft() {
     // find the carousel
-    var track = document.getElementById('carousel');
-    var trackWidth = track.getBoundingClientRect().width;
+    let track = document.getElementById('carousel');
+    let trackWidth = track.getBoundingClientRect().width;
 
     // scroll left by that amount
     track.scrollBy(-trackWidth, 0);
@@ -9,8 +15,8 @@ function ScrollLeft() {
 
 function ScrollRight() {
     // find the carousel
-    var track = document.getElementById('carousel');
-    var trackWidth = track.getBoundingClientRect().width;
+    let track = document.getElementById('carousel');
+    let trackWidth = track.getBoundingClientRect().width;
 
     // scroll right by that amount
     track.scrollBy(trackWidth, 0);
@@ -18,42 +24,61 @@ function ScrollRight() {
 
 function ScrollToSlide(page) {
     // find the carousel
-    var track = document.getElementById('carousel');
-    var trackWidth = track.getBoundingClientRect().width;
+    let track = document.getElementById('carousel');
+    let trackWidth = track.getBoundingClientRect().width;
 
     // scroll to slide number 
-    track.scrollTo(trackWidth * (page -1), 0)
+    track.scrollTo(trackWidth * (page - 1), 0)
 }
 
 function SetActivePage() {
     const scrollableElement = document.getElementById('carousel')
-    // Get the total scrollable height of the element
-    const scrollWidth = scrollableElement.scrollWidth;
-    // Get the current scroll position from the top
-    const scrollLeft = scrollableElement.scrollLeft;
-    // Get the height of the visible part of the element
-    const clientWidth = scrollableElement.clientWidth;
-    // Calculate how far the user has scrolled as a percentage
-    const scrollPercentage = (scrollLeft / (scrollWidth - clientWidth)) * 100;
 
-    const dot1 = document.getElementById('carousel');
+    const scrollWidth = scrollableElement.scrollWidth;    // source: ChatGPT
+    const scrollLeft = scrollableElement.scrollLeft;    // source: ChatGPT
+    const clientWidth = scrollableElement.clientWidth;    // source: ChatGPT
+    const scrollPercentage = (scrollLeft / (scrollWidth - clientWidth)) * 100;    // source: ChatGPT
 
-    console.log(`Scrolled: ${scrollLeft}px`);
-    console.log(`Scroll percentage: ${scrollPercentage.toFixed(2)}%`);
+    dot1.setAttribute('data-active', 'false');
+    dot2.setAttribute('data-active', 'false');
+    dot3.setAttribute('data-active', 'false');
+    dot4.setAttribute('data-active', 'false');
 
-    if (scrollPercentage >= 30) {
-
+    if (scrollPercentage >= 30 && scrollPercentage <= 40) {
+        dot2.setAttribute('data-active', 'true');
     }
 
-    setTimeout(function() {
+    else if (scrollPercentage >= 60 && scrollPercentage <= 70) {
+        dot3.setAttribute('data-active', 'true');
+    }
+
+    else if (scrollPercentage >= 90 && scrollPercentage <= 101) {
+        dot4.setAttribute('data-active', 'true');
+    }
+
+    else {
+        dot1.setAttribute('data-active', 'true');
+    }
+
+    setTimeout(function () {
         SetActivePage();
-    }, 500 );
+    }, 100);
 }
 
-document.addEventListener("DOMContentLoaded", function() {
+function AutoScroll() {
+    setTimeout(function () {
+        AutoScroll();
+    }, 100);
+}
+
+
+document.addEventListener("DOMContentLoaded", function () {
     console.log("Loaded");
+    dot1 = document.getElementById('dot1');
+    dot2 = document.getElementById('dot2');
+    dot3 = document.getElementById('dot3');
+    dot4 = document.getElementById('dot4');
     SetActivePage();
-    }
+    AutoScroll();
+}
 );
-
-
