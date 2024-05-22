@@ -1,5 +1,5 @@
 .carousel {
-    max-width: 80%; // makes space for the buttons on either side
+    max-width: 85%; // makes space for the buttons on either side
     margin-inline: auto; // center
     display: grid;
     grid-auto-flow: column; //automatically creates the right number of columns
@@ -37,10 +37,10 @@
 }
 
 .controller-container {
-    transform: translateY(calc(100% * 9 * (9/16) * 0.8 * 0.5 + 50%)); // moves the next/previous buttons to the sides of the image in the carousel
+    transform: translateY(calc(100% * 9 * (9/16) * 0.85 * 0.5 + 50%)); // moves the next/previous buttons to the sides of the image in the carousel
     // Multiply by 9 due to the aspect ratio. 
     // Multiply by the aspect ratio of the image to scale accurately (inverted due to Y-axis).
-    // Multiply by 0.8 for the 80% width of the image
+    // Multiply by 0.85 for the 85% width of the image
     // multiply by 0.5 to move it down by half of the image's height
     // add 50% to center the buttons relative to their own height
     display: grid;
@@ -86,7 +86,7 @@
 
 .carousel-indicator {
     display: grid;
-    grid-auto-flow: column;
+    grid-auto-flow: column; // automatically create columns for each entry
     place-items: center;
     align-items: center;
     width: fit-content;
@@ -99,7 +99,7 @@
         border-radius: 1rem;
         font-size: 1.5rem;
 
-        &[data-active="false"] {
+        &[data-active="false"] { // when the data attribute is false (default)
             opacity: 0.6;
             transition: 200ms;
             text-shadow: none;
@@ -107,16 +107,17 @@
         }
 
 
-        &[data-active="true"] {
+        &[data-active="true"] { // when the data attribute is true (via JavaScript)
             opacity: 1;
             transition: 200ms;
             scale: 1.2;
         }
 
-        &:nth-child(1) {
+        // selects each element based on their number in the list and applies properties
+        &:nth-child(1) { 
             color: $col-blue;
-            transform: scaleY(85%);
-            &[data-active="true"] {
+            transform: scaleY(85%); // this is because the triangle symbol is whack
+            &[data-active="true"] { // only active when the 1st item in the list has "true" in the data property
                 color: $col-white;
                 text-shadow: 0 0 0.5em $col-blue, 0 0 0.15em $col-cyan;
             }
@@ -150,13 +151,4 @@
 
         }
     }
-
-    // .carousel-line {
-    //     min-width: 0rem;
-    //     max-width: 6rem;
-    //     height: 0.15rem;
-    //     background-color: $col-white;
-    //     border-radius: $border-radius;
-    //     transform: translateY(100%);
-    // }
 }
