@@ -32,6 +32,13 @@
 
 // switch to mobile layout at this width
 @media (max-width: 960px){
+    #social {
+        display: none;
+        left: 1rem;
+        right: unset;
+        height: 80%;
+    }
+
     main img {
         box-shadow: 0px 0px $spc-xs $col-white;
     }
@@ -110,6 +117,10 @@
             &:not(:checked) ~ .nav-borgar-x { // when checkbox NOT checked, make the "X" icon transparent
                 opacity: 0%;
                 transition: 400ms;
+            }
+
+            &:checked ~ #social { // when checkbox is checked, make the social links
+                display: flex;
             }
         }
 

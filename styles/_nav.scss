@@ -98,8 +98,42 @@ a {
     height: calc($nav-height + $spc-med);
 }
 
+#social {
+    --icon-size: 3rem;
+    --gap-size: 1.5rem;
+    
+    position: absolute;
+    display: flex;
+    height: 100%;
+    place-items: center;
+    right: 1rem;
+
+    ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: var(--gap-size);
+    }
+
+    img {
+        width: min(var(--icon-size), 12vw);
+    }
+
+    a {
+        opacity: 0.6;
+        transition: 300ms;
+
+        &:hover {
+            opacity: 1;
+            transition: 300ms;
+        }
+    }
+
+}
+
 // mobile stuff
 
 #nav-toggle {
     display: none;
 }
+
