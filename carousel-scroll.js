@@ -23,7 +23,7 @@ function ScrollRight() {
     let track = document.getElementById('carousel');
     let trackWidth = track.getBoundingClientRect().width;
 
-    if (GetScrollPercent() >= 100) {
+    if (GetScrollPercent() >= 91) {
         // Loop back to start
         track.scrollBy(-trackWidth * 4, 0);
     }
