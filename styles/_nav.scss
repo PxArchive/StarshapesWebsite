@@ -103,7 +103,6 @@ a {
     --gap-size: 1.5rem;
     
     position: fixed;
-    z-index: 99;
     display: flex;
     height: 100%;
     place-items: center;
@@ -118,11 +117,16 @@ a {
 
     img {
         width: min(var(--icon-size), 12vw);
+        z-index: 99;
+        position: relative;
+
     }
 
     a {
         opacity: 0.6;
         transition: 300ms;
+        z-index: 99;
+        position: relative;
 
         &:hover {
             opacity: 1;

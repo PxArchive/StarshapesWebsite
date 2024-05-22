@@ -1,5 +1,5 @@
 .carousel {
-    max-width: 80%; // makes space for the buttons on either side
+    max-width: 85%; // makes space for the buttons on either side
     margin-inline: auto; // center
     display: grid;
     grid-auto-flow: column; //automatically creates the right number of columns
@@ -37,7 +37,7 @@
 }
 
 .controller-container {
-    transform: translateY(calc(100% * 9 * (9/16) * 0.8 * 0.5 + 50%)); // moves the next/previous buttons to the sides of the image in the carousel
+    transform: translateY(calc(100% * 9 * (9/16) * 0.85 * 0.5 + 75%)); // moves the next/previous buttons to the sides of the image in the carousel
     // Multiply by 9 due to the aspect ratio. 
     // Multiply by the aspect ratio of the image to scale accurately (inverted due to Y-axis).
     // Multiply by 0.8 for the 80% width of the image
