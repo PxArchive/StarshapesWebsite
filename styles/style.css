@@ -230,7 +230,7 @@ a {
 #social {
   --icon-size: 3rem;
   --gap-size: 1.5rem;
-  position: absolute;
+  position: fixed;
   display: flex;
   height: 100%;
   place-items: center;
