@@ -20,12 +20,12 @@
     scroll-snap-align:center; // makes the mobile scrolling snap to having the image on the middle of the screen, rather than an edge
     
     img {
-        --gap: 2rem; // space between each carousel element relative to their width.
+        --gap: 3rem; // space between each carousel element relative to their width.
         inline-size: calc(100% - var(--gap)); // shrink images to compensate for gap, so the glow is not cut off
         // max-height: 80svh;
         aspect-ratio: 16 / 9;
         object-fit: scale-down;
-        margin-block: 1rem;
+        margin-block: 1.5rem;
         margin-inline: calc(var(--gap) / 2); // place half of the gap on either side of the image
     }
 

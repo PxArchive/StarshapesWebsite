@@ -231,6 +231,7 @@ a {
   --icon-size: 3rem;
   --gap-size: 1.5rem;
   position: fixed;
+  z-index: 99;
   display: flex;
   height: 100%;
   place-items: center;
@@ -280,12 +281,12 @@ a {
   scroll-snap-align: center;
 }
 .carousel-slide img {
-  --gap: 2rem;
+  --gap: 3rem;
   inline-size: calc(100% - var(--gap));
   aspect-ratio: 16/9;
   -o-object-fit: scale-down;
      object-fit: scale-down;
-  margin-block: 1rem;
+  margin-block: 1.5rem;
   margin-inline: calc(var(--gap) / 2);
 }
 .carousel-slide h2, .carousel-slide p {
