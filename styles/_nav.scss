@@ -103,6 +103,7 @@ a {
     --gap-size: 1.5rem;
     
     position: fixed;
+    z-index: 99;
     display: flex;
     height: 100%;
     place-items: center;
