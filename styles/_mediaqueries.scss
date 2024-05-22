@@ -112,7 +112,7 @@
                 margin-bottom: 1rem;
             }
 
-            &:checked ~ nav .mobile-logo { // when the checkbox is checked, set the nav display type. "~" jumps to a same-level element rather than a child 
+            &:checked ~ nav .mobile-logo { // when checked, display the mobile logo, set sizing
                 display: grid;
                 height: 0;
                 .logo {

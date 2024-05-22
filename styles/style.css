@@ -299,7 +299,7 @@ a {
 }
 
 .controller-container {
-  transform: translateY(290.15625%);
+  transform: translateY(265.15625%);
   display: grid;
   grid-template-columns: 1fr 1fr;
   aspect-ratio: 9/1;

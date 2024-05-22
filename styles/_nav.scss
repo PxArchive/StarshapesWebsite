@@ -116,7 +116,7 @@ a {
     }
 
     img {
-        width: min(var(--icon-size), 12vw);
+        width: min(var(--icon-size), 12vw); // ensures that the icons scale down at lower screen sizes
         z-index: 99;
         position: relative;
 
