@@ -35,7 +35,7 @@
 
 
 // switch to mobile layout at this width
-@media (max-width: 960px) {
+@media (max-width: 960px), (orientation: portrait) {
     #social {
         --icon-size: 3.5rem; // re-defines the local variable for mobile layout. This value is applied to existing lines as well.
         display: flex; 
@@ -79,7 +79,7 @@
         // set it to the size of the burger menu
         width: 9rem;
         height: 8rem;
-        max-width: 480px;
+        max-width: 450px;
         transition: 200ms; // animation for the slide-in
 
         // PC menu has bottom rounding, mobile has top left rounding
@@ -96,7 +96,7 @@
             // margin-bottom: calc($spc-med * 1.25);
 
             li {
-                $menu-offset: 10vw; // offset used in the next calculations, based on screen size
+                $menu-offset: min(10vw, 3.5rem); // offset used in the next calculations, based on screen size
 
                 // multiply the offset depending on which number in the list each element is
                 &:nth-of-type(1) {
