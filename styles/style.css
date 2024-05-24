@@ -622,6 +622,12 @@ p a:hover {
   text-align: center;
 }
 
+footer {
+  margin: 8em 1rem 1rem 1rem;
+  opacity: 0.65;
+  text-align: center;
+}
+
 .mobile-only {
   display: none;
 }
@@ -762,6 +768,9 @@ p a:hover {
   }
   .columns-two {
     grid-template-columns: auto;
+  }
+  footer {
+    text-align: left;
   }
 }
 @media (hover: none) {
