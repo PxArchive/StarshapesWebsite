@@ -409,7 +409,7 @@ body::before {
 
 .content-grid {
   --padding-bar: 0.5rem;
-  --content-max-width: 960px ;
+  --content-max-width: 960px;
   --breakout-width: minmax(0px, 3rem);
   display: grid;
   grid-template-columns: [fullwidth-start] minmax(var(--padding-bar), 1fr) [breakout-start] var(--breakout-width) [content-start] min(100% - var(--padding-bar) * 4, var(--content-max-width)) [content-end] var(--breakout-width) [breakout-end] minmax(var(--padding-bar), 1fr) [fullwidth-end];
@@ -508,7 +508,8 @@ hr::before, hr::after {
   mix-blend-mode: screen;
 }
 
-main img, main iframe {
+main img,
+main iframe {
   border-radius: 10px;
   box-shadow: 0px 0px 1em #ffffff, 0px 0px 0.5em #ffffff;
   max-width: calc(100% - 2em);
@@ -589,6 +590,36 @@ p a::before {
 p a:hover {
   filter: brightness(2);
   text-shadow: 0px 0px 0.8em #0080ff, 0px 0px 0.5em #a8cfd4;
+}
+
+.icon-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-around;
+}
+.icon-container a {
+  display: grid;
+  gap: 0.5em;
+  place-items: center;
+}
+.icon-container a:hover {
+  text-shadow: 0 0 0.25em #ffffff;
+}
+.icon-container a:hover img {
+  opacity: 1;
+}
+.icon-container a img {
+  min-width: 2rem !important;
+  width: 2rem;
+  box-shadow: none;
+  border: none;
+  border-radius: 0;
+  opacity: 0.75;
+}
+.icon-container p {
+  width: 100%;
+  text-align: center;
 }
 
 .mobile-only {

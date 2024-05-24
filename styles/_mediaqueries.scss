@@ -34,7 +34,7 @@
 }
 
 
-// switch to mobile layout at this width
+// switch to mobile layout at this width, or if device is in portrait mode
 @media (max-width: 960px), (orientation: portrait) {
     #social {
         --icon-size: 3.5rem; // re-defines the local variable for mobile layout. This value is applied to existing lines as well.
@@ -73,7 +73,8 @@
         // move navigation to the bottom right
         bottom: 0;
         right: 0;
-        top: unset; 
+        top: unset;
+        
         
 
         // set it to the size of the burger menu

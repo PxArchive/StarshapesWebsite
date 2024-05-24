@@ -9,6 +9,7 @@
 
 body {
     background: $g-background; // use the gradient variable as background
+
     &::before {
         content: ''; // create an invisible clone of the same object
         z-index: -1; // place it behind the content inside 'body'
@@ -22,43 +23,37 @@ body {
         background-repeat: repeat;
         mix-blend-mode: screen;
     }
+
+
 }
 
 // very important grid setup that the layout relies on
 .content-grid {
     --padding-bar: 0.5rem; // sets the page padding base value
-    --content-max-width: 960px ; // sets the maximum width of the main content
+    --content-max-width: 960px; // sets the maximum width of the main content
     --breakout-width: minmax(0px, 3rem); // how far the breakout element breaks out
 
     display: grid;
-    grid-template-columns: 
-    [fullwidth-start] // label to call all 5 columns "fullwidth"
-    minmax(var(--padding-bar), 1fr) // dynamically scale the page padding between the minimum padding, and infinity, to keep the content centered
+    grid-template-columns:
+        [fullwidth-start] // label to call all 5 columns "fullwidth"
+        minmax(var(--padding-bar), 1fr) // dynamically scale the page padding between the minimum padding, and infinity, to keep the content centered
 
-    [breakout-start] // label to call the inner 3 columns "breakout"
-    var(--breakout-width) 
-
-    [content-start] // label to call the central column "content"
-    min(100% - (var(--padding-bar) * 4), var(--content-max-width)) // removes the breakout padding dynamically on small screen sizes, while keeping the main content column to a maximum width
-    [content-end] 
-
-    var(--breakout-width) 
-    [breakout-end] 
-
-    minmax(var(--padding-bar), 1fr) 
-    [fullwidth-end];
+        [breakout-start] // label to call the inner 3 columns "breakout"
+        var(--breakout-width) [content-start] // label to call the central column "content"
+        min(100% - (var(--padding-bar) * 4), var(--content-max-width)) // removes the breakout padding dynamically on small screen sizes, while keeping the main content column to a maximum width
+        [content-end] var(--breakout-width) [breakout-end] minmax(var(--padding-bar), 1fr) [fullwidth-end];
     // start and end suffix/prefix creates the grid-areas that content is assigned to
 }
 
-.content-grid > * {
+.content-grid>* {
     grid-column: content; // assign all direct children of the grid to fill only the "content" central column
 }
 
-.content-grid > .breakout {
+.content-grid>.breakout {
     grid-column: breakout; // assign the breakout class to the breakout area, becoming slightly wider than the content
 }
 
-.content-grid > .fullwidth {
+.content-grid>.fullwidth {
     grid-column: fullwidth; // assign the fullwidth class to all 5 columns, fulling the entire width of the screen
 }
 
@@ -70,7 +65,7 @@ button {
     grid-template-columns: auto auto;
 
     // font stuff
-    color: $col-white; 
+    color: $col-white;
     font-family: $font-display;
     font-weight: 900;
     font-size: $fs-button;
@@ -84,7 +79,7 @@ button {
     background: none;
 
     transition: 200ms;
-    
+
     // create a funny orb before the text
     &::before {
         content: ''; //make the orb exist without any content
@@ -96,7 +91,7 @@ button {
         height: 0.55em;
         background-color: $col-white;
         border-radius: 9em;
-        margin-right: 0.5em ;
+        margin-right: 0.5em;
     }
 
     // text and outline glow on hover
@@ -119,7 +114,7 @@ button {
         color: $col-black;
         transition: 0ms;
     }
-    
+
     // make the orb black when the button is clicked
     &:active::before {
         background-color: $col-black;
@@ -127,7 +122,7 @@ button {
     }
 }
 
-.columns-two{
+.columns-two {
     display: grid;
     grid-template-columns: auto auto;
     gap: $spc-med;
@@ -148,10 +143,11 @@ hr {
     margin-block: $spc-med;
     overflow: visible; // everything outside the line (the glow) disappears without this - weird <hr> behaviour
 
-    &::before, &::after { 
+    &::before,
+    &::after {
 
         content: '';
-        position: relative; 
+        position: relative;
         top: -1px; // offset to center on the y axis
         left: calc(var(--width-offset) * -0.5); // offset to center the blur
         width: calc(100% + var(--width-offset)); // add the extra width back in, otherwise it would be the same size
@@ -159,11 +155,12 @@ hr {
 
         background: $g-rainbow;
         filter: blur(0.3rem);
-        mix-blend-mode: screen; 
+        mix-blend-mode: screen;
     }
 }
 
-main img, main iframe {
+main img,
+main iframe {
     border-radius: $border-radius;
     box-shadow: 0px 0px $spc-small $col-white, 0px 0px $spc-xs $col-white;
     max-width: calc(100% - $spc-med); // add a 2rem margin while maintaining the centering from margin auto
@@ -191,10 +188,12 @@ main img, main iframe {
         box-shadow: none;
     }
 
-    &::before, &::after { //creates a glowy gradient blur to make the white line glow
+    &::before,
+    &::after {
+        //creates a glowy gradient blur to make the white line glow
 
         content: '';
-        position: absolute; 
+        position: absolute;
         display: grid;
         top: -2px;
         left: -2px;
@@ -202,17 +201,19 @@ main img, main iframe {
         height: calc(100% + 4px); // make the glowy gradient line slightly larger than the white line
 
         background: $g-boxgradient;
-        filter: blur(0.3rem); 
-        mix-blend-mode: screen; 
+        filter: blur(0.3rem);
+        mix-blend-mode: screen;
     }
 
-    &::after { // sets the 2nd copy to be slightly larger blur, and transparent
+    &::after {
+        // sets the 2nd copy to be slightly larger blur, and transparent
         opacity: 0%;
         filter: blur(0.5rem);
         transition: 200ms;
     }
 
-    &:hover::after { // makes 2nd copy visible on hover
+    &:hover::after {
+        // makes 2nd copy visible on hover
         opacity: 100%;
         transition: 200ms;
     }
@@ -238,7 +239,8 @@ p a {
     padding: 0.15em 0.15em 0.05em;
     border-radius: 0.15em;
 
-    &::before { // make a little link symbol for text-links
+    &::before {
+        // make a little link symbol for text-links
         content: '';
         display: inline-block;
         position: relative;
@@ -246,13 +248,47 @@ p a {
         width: 1em;
         height: 1em;
         background-image: url(../assets/Icons/link.svg);
-        background-size:cover;
+        background-size: cover;
     }
 
     &:hover {
         // background-color: #49777e7d;
         filter: brightness(2); // makes stuff white on hover
-        text-shadow: 0px 0px 0.8em $col-blue, 0px 0px 0.5em $col-cyan; 
+        text-shadow: 0px 0px 0.8em $col-blue, 0px 0px 0.5em $col-cyan;
+    }
+}
+
+.icon-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-around;
+
+    a {
+        display: grid;
+        gap: $spc-xs;
+        // background-color: red;
+        place-items: center;
+        &:hover {
+            text-shadow: 0 0 0.25em $col-white;
+            img {
+                opacity: 1;
+            }
+        }
+    }
+
+    a img {
+        min-width: 2rem !important; // make sure this is overwritten from "main img" further up
+        width: 2rem;
+        box-shadow: none; // remove other img formatting
+        border: none; // same
+        border-radius: 0; // same
+        opacity: 0.75;
+    }
+
+    p {
+        width: 100%;
+        text-align: center;
     }
 }
 
