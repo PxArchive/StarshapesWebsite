@@ -623,11 +623,29 @@ p a:hover {
 }
 @media (max-width: 960px) {
   #social {
-    display: none;
-    left: 1rem;
+    --icon-size: 4rem;
+    display: flex;
     right: unset;
-    height: 80%;
+    place-items: unset;
+    height: -moz-fit-content;
+    height: fit-content;
+    width: 100%;
     z-index: 99;
+    background-color: #000000;
+    transform: translateY(-100%);
+    transition: 200ms;
+    transform-origin: top;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+  }
+  #social ul {
+    flex-direction: row;
+    padding: 1rem;
+    place-items: center;
+    margin-inline: auto;
+  }
+  #social a {
+    opacity: 1;
   }
   main img {
     box-shadow: 0px 0px 0.5em #ffffff;
@@ -641,6 +659,7 @@ p a:hover {
     top: unset;
     width: 9rem;
     height: 8rem;
+    max-width: 500px;
     transition: 200ms;
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
@@ -683,7 +702,6 @@ p a:hover {
   }
   #nav-toggle:checked ~ nav {
     width: 100%;
-    max-width: 500px;
     height: 25rem;
     transition: 200ms;
   }
@@ -696,7 +714,8 @@ p a:hover {
     transition: 400ms;
   }
   #nav-toggle:checked ~ #social {
-    display: flex;
+    transform: translateY(0%);
+    transition: 200ms;
   }
   .nav-borgar-x, .nav-borgar-b {
     position: fixed;
