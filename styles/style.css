@@ -623,7 +623,7 @@ p a:hover {
 }
 @media (max-width: 960px) {
   #social {
-    --icon-size: 4rem;
+    --icon-size: 3.5rem;
     display: flex;
     right: unset;
     place-items: unset;
@@ -640,7 +640,7 @@ p a:hover {
   }
   #social ul {
     flex-direction: row;
-    padding: 1rem;
+    padding-block: 1.5rem;
     place-items: center;
     margin-inline: auto;
   }
