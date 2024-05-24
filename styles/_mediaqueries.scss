@@ -37,11 +37,30 @@
 // switch to mobile layout at this width
 @media (max-width: 960px){
     #social {
-        display: none;
-        left: 1rem;
+        --icon-size: 4rem;
+        display: flex;
         right: unset;
-        height: 80%;
+        place-items: unset;
+        height: fit-content;
+        width: 100%;
         z-index: 99;
+        background-color: $col-black;
+        transform: translateY(-100%);
+        transition: 200ms;
+        transform-origin: top;
+        border-bottom-left-radius: 50%;
+        border-bottom-right-radius: 50%;
+
+        ul {
+            flex-direction: row;
+            padding: 1rem;
+            place-items: center;
+            margin-inline: auto;
+        }
+
+        a {
+            opacity: 1;
+        }
     }
 
     main img {
@@ -56,10 +75,12 @@
         bottom: 0;
         right: 0;
         top: unset; 
+        
 
         // set it to the size of the burger menu
         width: 9rem;
         height: 8rem;
+        max-width: 500px;
         transition: 200ms; // animation for the slide-in
 
         // PC menu has bottom rounding, mobile has top left rounding
@@ -123,7 +144,6 @@
 
             &:checked ~ nav { // when the checkbox is checked, change the nav height to the mobile variable, overriding the burger-size set previously. Same animation timer.
                 width: 100%;
-                max-width: 500px;
                 height: $nav-height-m;
                 transition: 200ms;
             }
@@ -139,7 +159,9 @@
             }
 
             &:checked ~ #social { // when checkbox is checked, make the social links
-                display: flex;
+                // display: flex;
+                transform: translateY(00%);
+                transition: 200ms;
             }
         }
 
