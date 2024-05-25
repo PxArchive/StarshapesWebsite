@@ -1,7 +1,37 @@
-let dot1;
-let dot2;
-let dot3;
-let dot4;
+const dotList = [];
+const scrollPoints = [];
+
+function CountSlides() {
+    //Count all carousel slides by finding every element with that name
+    const slides = document.getElementsByClassName("carousel-slide");
+
+    //Empty previous list of slides in case there were any
+    for (let i = dotList.length; i < 0; i--) {
+        dotList.pop();
+    }
+
+    //Same with the scroll tracker
+    for (let i = scrollPoints.length; i < 0; i--) {
+        scrollPoints.pop();
+    }
+
+    //Find all slides & put them into an array for later
+    for (let i = 0; i < slides.length; i++) {
+
+        //...unless the slide is missing it's point, then alert the user
+        if (document.getElementById('dot' + (i + 1)) == undefined || document.getElementById('dot' + (i + 1)) == null) {
+            alert("ERROR: The symbol for carousel slide "+i+" has not been created!")
+        }
+        else {
+            dotList[i] = document.getElementById('dot' + (i + 1));
+        }
+    }
+
+    //Calculate and track where the scrolling should display a new slide
+    for (let i = 0; i < slides.length; i++) {
+        scrollPoints[i] = (100 / (dotList.length - 1)) * i;
+    }
+}
 
 function ScrollLeft() {
     // Find the carousel
@@ -10,7 +40,7 @@ function ScrollLeft() {
 
     if (GetScrollPercent() <= 0) {
         // Loop back to end
-        track.scrollBy(trackWidth * 4, 0);
+        track.scrollBy(trackWidth * dotList.length, 0);
     }
     else {
         // Scroll left by that amount
@@ -23,9 +53,9 @@ function ScrollRight() {
     let track = document.getElementById('carousel');
     let trackWidth = track.getBoundingClientRect().width;
 
-    if (GetScrollPercent() >= 91) {
+    if (GetScrollPercent() >= scrollPoints[scrollPoints.length-1]) {
         // Loop back to start
-        track.scrollBy(-trackWidth * 4, 0);
+        track.scrollBy(-trackWidth * dotList.length, 0);
     }
     else {
         // Scroll right by that amount
@@ -40,6 +70,9 @@ function ScrollToSlide(page) {
 
     // Scroll to slide number 
     track.scrollTo(trackWidth * (page - 1), 0)
+
+    //Reset auto scroll timer
+    setTimeout(function () { AutoScroll(); }, 5000);
 }
 
 function GetScrollPercent() {
@@ -55,24 +88,27 @@ function SetActivePage() {
     let scrollPercentage = GetScrollPercent();
 
     // Turn off all indicators
-    dot1.setAttribute('data-active', 'false');
-    dot2.setAttribute('data-active', 'false');
-    dot3.setAttribute('data-active', 'false');
-    dot4.setAttribute('data-active', 'false');
+    for (let i = 0; i < dotList.length; i++) {
+        dotList[i].setAttribute('data-active', 'false');
+    }
+
 
     // Turn on current indicator depending on scroll percentage
-    if (scrollPercentage >= 30 && scrollPercentage <= 60) {
-        dot2.setAttribute('data-active', 'true');
+    for (let i = 0; i < scrollPoints.length; i++) {
+        if (scrollPercentage >= scrollPoints[scrollPoints.length - 1] && scrollPercentage <= 101) {
+            dotList[dotList.length - 1].setAttribute('data-active', 'true');
+            break;
+        }
+        else if (scrollPercentage < scrollPoints[1]) {
+            dotList[0].setAttribute('data-active', 'true');
+            break;
+        }
+        else if (scrollPercentage >= scrollPoints[i] && scrollPercentage <= scrollPoints[i + 1]) {
+            dotList[i].setAttribute('data-active', 'true');
+            break;
+        }        
     }
-    else if (scrollPercentage >= 60 && scrollPercentage <= 90) {
-        dot3.setAttribute('data-active', 'true');
-    }
-    else if (scrollPercentage >= 90 && scrollPercentage <= 101) {
-        dot4.setAttribute('data-active', 'true');
-    }
-    else {
-        dot1.setAttribute('data-active', 'true');
-    }
+
 
     // Run function again after 25ms to refresh status
     setTimeout(function () { SetActivePage(); }, 25);
@@ -86,11 +122,8 @@ function AutoScroll() {
 
 document.addEventListener("DOMContentLoaded", function () {
     console.log("Loaded");
-    dot1 = document.getElementById('dot1');
-    dot2 = document.getElementById('dot2');
-    dot3 = document.getElementById('dot3');
-    dot4 = document.getElementById('dot4');
-    SetActivePage();
+    CountSlides();
+    SetActivePage();    
     AutoScroll();
 }
 );
