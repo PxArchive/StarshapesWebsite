@@ -1,5 +1,6 @@
 const dotList = [];
 const scrollPoints = [];
+//Remember to change both the HTML & SASS code! (Program does work without SASS, but non-styled carousel icons become invisible)
 
 function CountSlides() {
     //Count all carousel slides by finding every element with that name
@@ -91,7 +92,6 @@ function SetActivePage() {
     for (let i = 0; i < dotList.length; i++) {
         dotList[i].setAttribute('data-active', 'false');
     }
-
 
     // Turn on current indicator depending on scroll percentage
     for (let i = 0; i < scrollPoints.length; i++) {
