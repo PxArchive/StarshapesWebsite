@@ -34,18 +34,17 @@
 }
 
 
-// switch to mobile layout at this width
-@media (max-width: 960px){
+// switch to mobile layout at this width, or if device is in portrait mode
+@media (max-width: 960px), (orientation: portrait) {
     #social {
-        --icon-size: 4rem;
-        display: flex;
-        right: unset;
-        place-items: unset;
+        --icon-size: 3.5rem; // re-defines the local variable for mobile layout. This value is applied to existing lines as well.
+        display: flex; 
+        right: unset; // removes the padding from PC layout
         height: fit-content;
         width: 100%;
         z-index: 99;
         background-color: $col-black;
-        transform: translateY(-100%);
+        transform: translateY(-100%); // move social links offscreen
         transition: 200ms;
         transform-origin: top;
         border-bottom-left-radius: 50%;
@@ -53,7 +52,7 @@
 
         ul {
             flex-direction: row;
-            padding: 1rem;
+            padding-block: 1.5rem;
             place-items: center;
             margin-inline: auto;
         }
@@ -74,13 +73,14 @@
         // move navigation to the bottom right
         bottom: 0;
         right: 0;
-        top: unset; 
+        top: unset;
+        
         
 
         // set it to the size of the burger menu
         width: 9rem;
         height: 8rem;
-        max-width: 500px;
+        max-width: 450px;
         transition: 200ms; // animation for the slide-in
 
         // PC menu has bottom rounding, mobile has top left rounding
@@ -97,7 +97,7 @@
             // margin-bottom: calc($spc-med * 1.25);
 
             li {
-                $menu-offset: 10vw; // offset used in the next calculations, based on screen size
+                $menu-offset: min(10vw, 3.5rem); // offset used in the next calculations, based on screen size
 
                 // multiply the offset depending on which number in the list each element is
                 &:nth-of-type(1) {
@@ -158,8 +158,7 @@
                 transition: 400ms;
             }
 
-            &:checked ~ #social { // when checkbox is checked, make the social links
-                // display: flex;
+            &:checked ~ #social { // when checkbox is checked, move social links back onscreen
                 transform: translateY(00%);
                 transition: 200ms;
             }
@@ -182,6 +181,10 @@
 
         .columns-two {
             grid-template-columns: auto;
+        }
+
+        footer {
+            text-align: left;
         }
 }
 
