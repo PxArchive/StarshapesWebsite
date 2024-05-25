@@ -1,5 +1,6 @@
 const dotList = [];
 const scrollPoints = [];
+let manualScroll = false;
 //Remember to change both the HTML & SASS code! (Program does work without SASS, but non-styled carousel icons become invisible)
 
 function CountSlides() {
@@ -73,7 +74,8 @@ function ScrollToSlide(page) {
     track.scrollTo(trackWidth * (page - 1), 0)
 
     //Reset auto scroll timer
-    setTimeout(function () { AutoScroll(); }, 5000);
+    manualScroll = true;
+    setTimeout(AutoScroll, 5000);
 }
 
 function GetScrollPercent() {
@@ -115,10 +117,15 @@ function SetActivePage() {
 }
 
 function AutoScroll() {
-    ScrollRight();
-    setTimeout(function () { AutoScroll(); }, 5000);
+    //check if manual scroll has happened, if so disable autoscroll until 2nd timer
+    if (!manualScroll) {
+        ScrollRight();
+        setTimeout(function () { AutoScroll(); }, 5000);
+    }
+    else {
+        manualScroll = false;
+    }
 }
-
 
 document.addEventListener("DOMContentLoaded", function () {
     console.log("Loaded");
