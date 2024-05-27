@@ -1,6 +1,8 @@
 const dotList = [];
 const scrollPoints = [];
 let manualScroll = false;
+let stopTimer;
+let scrollTimer;
 //Remember to change both the HTML & SASS code! (Program does work without SASS, but non-styled carousel icons become invisible)
 
 function CountSlides() {
@@ -31,7 +33,7 @@ function CountSlides() {
 
     //Calculate and track where the scrolling should display a new slide
     for (let i = 0; i < slides.length; i++) {
-        scrollPoints[i] = (100 / (dotList.length - 1)) * i;
+        scrollPoints[i] = Math.floor((100 / (dotList.length - 1)) * i);
     }
 }
 
@@ -70,23 +72,26 @@ function ScrollToSlide(page) {
     let track = document.getElementById('carousel');
     let trackWidth = track.getBoundingClientRect().width;
     // Scroll to slide number 
-    track.scrollTo(trackWidth * (page - 1), 0)
-    const newTimer = setTimeout(AutoScroll, 5000);
+    track.scrollTo(trackWidth * (page - 1), 0)    
     //Reset auto scroll timer
     if (manualScroll==true) {
-        //If a timer is already going, stop it
-        clearTimeout(newTimer);
+        //If a timer is already going, stop it & start a new one
+        clearTimeout(stopTimer);
+        stopTimer = setTimeout(AllowAutoScroll, 5000);
         console.log("clearing timer")
     }    
     else {
+        clearInterval(scrollTimer);
         manualScroll = true;
-        setTimeout(AllowAutoScroll, 5000);
+        stopTimer = setTimeout(AllowAutoScroll, 5000);
         console.log("setting new timer")
     }
+
 }
 
 function AllowAutoScroll() {
     manualScroll = false;
+    scrollTimer = setInterval(AutoScroll, 5000);
     AutoScroll();
 }
 
@@ -109,7 +114,7 @@ function SetActivePage() {
 
     // Turn on current indicator depending on scroll percentage
     for (let i = 0; i < scrollPoints.length; i++) {
-        if (scrollPercentage > scrollPoints[scrollPoints.length - 1] && scrollPercentage <= 101) {
+        if (scrollPercentage >= scrollPoints[scrollPoints.length - 1] && scrollPercentage < 101) {
             dotList[dotList.length - 1].setAttribute('data-active', 'true');
             break;
         }
@@ -117,7 +122,7 @@ function SetActivePage() {
             dotList[0].setAttribute('data-active', 'true');
             break;
         }
-        else if (scrollPercentage >= scrollPoints[i] && scrollPercentage <= scrollPoints[i + 1]) {
+        else if (scrollPercentage >= scrollPoints[i] && scrollPercentage <= scrollPoints[i+1]) {
             dotList[i].setAttribute('data-active', 'true');
             break;
         }        
@@ -131,15 +136,14 @@ function SetActivePage() {
 function AutoScroll() {
     //Check if manual scroll has happened
     if (manualScroll==false) {
-        ScrollRight();
-        setTimeout(function () { AutoScroll(); }, 5000);
+        ScrollRight();        
     }
 }
 
 document.addEventListener("DOMContentLoaded", function () {
     console.log("Loaded");
     CountSlides();
-    SetActivePage();    
-    AutoScroll();
+    SetActivePage();
+    scrollTimer = setInterval(AutoScroll, 5000);
 }
 );
