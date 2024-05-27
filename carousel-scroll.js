@@ -69,13 +69,25 @@ function ScrollToSlide(page) {
     // Find the carousel
     let track = document.getElementById('carousel');
     let trackWidth = track.getBoundingClientRect().width;
-
     // Scroll to slide number 
     track.scrollTo(trackWidth * (page - 1), 0)
-
+    const newTimer = setTimeout(AutoScroll, 5000);
     //Reset auto scroll timer
-    manualScroll = true;
-    setTimeout(AutoScroll, 5000);
+    if (manualScroll==true) {
+        //If a timer is already going, stop it
+        clearTimeout(newTimer);
+        console.log("clearing timer")
+    }    
+    else {
+        manualScroll = true;
+        setTimeout(AllowAutoScroll, 5000);
+        console.log("setting new timer")
+    }
+}
+
+function AllowAutoScroll() {
+    manualScroll = false;
+    AutoScroll();
 }
 
 function GetScrollPercent() {
@@ -97,7 +109,7 @@ function SetActivePage() {
 
     // Turn on current indicator depending on scroll percentage
     for (let i = 0; i < scrollPoints.length; i++) {
-        if (scrollPercentage >= scrollPoints[scrollPoints.length - 1] && scrollPercentage <= 101) {
+        if (scrollPercentage > scrollPoints[scrollPoints.length - 1] && scrollPercentage <= 101) {
             dotList[dotList.length - 1].setAttribute('data-active', 'true');
             break;
         }
@@ -117,13 +129,10 @@ function SetActivePage() {
 }
 
 function AutoScroll() {
-    //check if manual scroll has happened, if so disable autoscroll until 2nd timer
-    if (!manualScroll) {
+    //Check if manual scroll has happened
+    if (manualScroll==false) {
         ScrollRight();
         setTimeout(function () { AutoScroll(); }, 5000);
-    }
-    else {
-        manualScroll = false;
     }
 }
 
